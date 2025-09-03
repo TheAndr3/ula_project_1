@@ -2,8 +2,9 @@ module somador_subtrator_4bits (
     input  wire [3:0] a,         
     input  wire [3:0] b,         
     input  wire modo_sub,    // 0=Soma, 1=Subtração
-    output wire [3:0] s,         
-    // saída para o Overflow 
+    output wire [3:0] s,
+	 output wire cout,
+	 output wire ov 
 );
 
     // Fio para o operando B modificado (será 'B' para soma, 'NOT B' para subtração)
