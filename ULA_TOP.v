@@ -1,6 +1,7 @@
 module ULA_TOP (
     // Entradas físicas da placa
     input  wire [9:0] SW,
+    input  wire [1:0] KEY,
     // Saídas físicas da placa
     output wire [6:0] HEX0,
     output wire [6:0] HEX1
@@ -8,77 +9,67 @@ module ULA_TOP (
 
     // --- Mapeamento de Entradas ---
     wire [3:0] a = SW[3:0];
-    // NOTA: Para B ter 4 bits, teríamos que usar SW[7:4].
-    // Mantendo a lógica anterior com SW[7] como carry-in:
-    wire [3:0] b = {1'b0, SW[6:4]}; // B usa 3 chaves, o bit mais alto é 0.
-    wire carry_in_switch = SW[7];   // SW[7] é a nossa Carry-in.
-    wire [1:0] seletor = SW[9:8];
-    
+    wire [3:0] b = SW[7:4];
+    wire carry_in_switch = SW[8];
+    wire [2:0] seletor = {KEY[1], KEY[0], SW[9]}; // Seletor de 3 bits
+
     // --- Fios Intermediários ---
-    wire [3:0] resultado_soma_sub, resultado_and, resultado_or;
-    wire cout, ov;
+    wire [3:0] resultado_soma, resultado_sub, resultado_and, resultado_or;
+    wire cout_soma, ov_soma, cout_sub, ov_sub;
     wire [3:0] resultado_ula;
     wire [3:0] digito_dezena;
     wire [3:0] digito_unidade;
     
-    // Fios de controle para o somador
-    wire modo_sub;
-    wire carry_inicial;
+    // Fios para constantes
+    wire vcc, gnd, not_a0;
+    wire [3:0] gnd_bus; // Barramento de 4 bits para o GND
 
-    // Fios para constantes e lógica de controle
-    wire not_seletor_1;
-    wire vcc; // Fio para constante '1'
-    wire not_a0; // Fio auxiliar para gerar vcc
+    // --- Lógica Estrutural de Controle e Constantes ---
 
-    // --- Lógica Estrutural de Controle (Substituindo 'assign') ---
-
-    // 1. Gerar constantes VCC (1) e GND (0) de forma estrutural se necessário.
-    //    Para VCC = a[0] OR (NOT a[0]), o que sempre resulta em 1.
+    // 1. Gerar constantes VCC (1) e GND (0)
     not U_VCC_NOT (not_a0, a[0]);
     or  U_VCC_OR  (vcc, a[0], not_a0);
-
-    // 2. Lógica para gerar 'modo_sub'
-    //    modo_sub = (seletor == 2'b01) -> modo_sub = (NOT seletor[1]) AND seletor[0]
-    not U_NOT_SEL1 (not_seletor_1, seletor[1]);
-    and U_AND_SUB  (modo_sub, not_seletor_1, seletor[0]);
-
-    // 3. Lógica para gerar 'carry_inicial' com um MUX 2-para-1 implícito
-    //    carry_inicial = modo_sub ? 1'b1 : carry_in_switch;
-    wire term_mux_0, term_mux_1;
-    wire not_modo_sub;
-    not U_NOT_MSUB (not_modo_sub, modo_sub);
-    and U_MUX_T0   (term_mux_0, not_modo_sub, carry_in_switch);
-    and U_MUX_T1   (term_mux_1, modo_sub, vcc);
-    or  U_MUX_OR   (carry_inicial, term_mux_0, term_mux_1);
+    and U_GND_AND (gnd, a[0], not_a0);
+    
+    // Atribui o GND a todos os bits do barramento gnd_bus
+    buf U_GND_BUF0 (gnd_bus[0], gnd);
+    buf U_GND_BUF1 (gnd_bus[1], gnd);
+    buf U_GND_BUF2 (gnd_bus[2], gnd);
+    buf U_GND_BUF3 (gnd_bus[3], gnd);
 
     // --- Instanciação dos Módulos ---
 
-    // 1. Instanciar as unidades de operação
-    somador_subtrator_4bits U_SomaSub (
-        .a(a), 
-        .b(b), 
-        .modo_sub(modo_sub), 
-        .cin_inicial(carry_inicial), // Passamos o carry correto
-        .s(resultado_soma_sub), 
-        .cout(cout), 
-        .ov(ov)
+    // 1. Unidades de operação
+    // Soma (modo_sub=0, cin=carry_in_switch)
+    somador_subtrator_4bits U_Soma (
+        .a(a), .b(b), .modo_sub(gnd), .cin_inicial(carry_in_switch),
+        .s(resultado_soma), .cout(cout_soma), .ov(ov_soma)
+    );
+
+    // Subtração (modo_sub=1, cin=1)
+    somador_subtrator_4bits U_Sub (
+        .a(a), .b(b), .modo_sub(vcc), .cin_inicial(vcc),
+        .s(resultado_sub), .cout(cout_sub), .ov(ov_sub)
     );
     
     unidade_and_4bits U_AND (.A(a), .B(b), .S(resultado_and));
     unidade_or_4bits  U_OR  (.A(a), .B(b), .S(resultado_or));
     
-    // 2. MUX principal para selecionar o resultado
-    mux_4_para_1_4bits U_MUX (
-        .D0(resultado_soma_sub), // Seletor 00 (Soma)
-        .D1(resultado_soma_sub), // Seletor 01 (Subtração)
-        .D2(resultado_and),      // Seletor 10 (AND)
-        .D3(resultado_or),       // Seletor 11 (OR)
-        .S(seletor),
+    // 2. MUX principal de 8 para 1
+    mux_8_para_1_4bits U_MUX (
+        .D0(resultado_soma),     // Seletor 000: Soma
+        .D1(resultado_sub),     // Seletor 001: Subtração
+        .D2(resultado_and),     // Seletor 010: AND
+        .D3(resultado_or),      // Seletor 011: OR
+        .D4(gnd_bus),           // Seletor 100: Não usado (saída 0)
+        .D5(gnd_bus),           // Seletor 101: Não usado (saída 0)
+        .D6(gnd_bus),           // Seletor 110: Não usado (saída 0)
+        .D7(gnd_bus),           // Seletor 111: Não usado (saída 0)
+        .S(seletor),             // Conecta o seletor de 3 bits
         .Y(resultado_ula)
     );
     
-    // 3. Conversão e exibição nos displays
-    // (Usando o nome do módulo que criamos a partir da tabela verdade)
+    // 3. Conversão e exibição
     bcd U_BCD (
         .B(resultado_ula), 
         .dezena_out(digito_dezena), 
