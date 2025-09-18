@@ -1,0 +1,14 @@
+module porta_xor (
+    input  wire a,
+    input  wire b,
+    output wire y
+);
+    wire a_n, b_n, term1, term2;
+
+    not inv_a (a_n, a);
+    not inv_b (b_n, b);
+    and and1 (term1, a_n, b);   // term1 = A' · B
+    and and2 (term2, a, b_n);   // term2 = A · B'
+    or  or1  (y, term1, term2);
+	 
+endmodule

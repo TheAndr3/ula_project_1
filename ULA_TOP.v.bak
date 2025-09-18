@@ -4,28 +4,19 @@ module ULA_TOP (
     input  wire [1:0] KEY,
     // Saídas físicas da placa
     output wire [6:0] HEX0,
-    output wire [6:0] HEX1,
-	 output LEDR9,
-	 output LEDR8
+    output wire [6:0] HEX1
 );
-
-	// Invertendo butoes
-	wire nKEY1, nKEY0;
-	not nk1 (nKEY1, KEY[1]);
-	not nk0 (nKEY0, KEY[0]);
 
     // --- Mapeamento de Entradas ---
     wire [3:0] a = SW[3:0];
     wire [3:0] b = SW[7:4];
     wire carry_in_switch = SW[8];
-    wire [2:0] seletor = {nKEY1, nKEY0, SW[9]}; // Seletor de 3 bits
+    wire [2:0] seletor = {KEY[1], KEY[0], SW[9]}; // Seletor de 3 bits
 
     // --- Fios Intermediários ---
-	 wire [4:0] ac;
-    wire [4:0] resultado_soma, resultado_sub, resultado_div;
-	 wire resultado_and, resultado_or, resultado_xor;
+    wire [3:0] resultado_soma, resultado_sub, resultado_and, resultado_or;
     wire cout_soma, ov_soma, cout_sub, ov_sub;
-    wire [7:0] resultado_ula, resultado_mult;
+    wire [3:0] resultado_ula;
     wire [3:0] digito_dezena;
     wire [3:0] digito_unidade;
     
@@ -48,12 +39,6 @@ module ULA_TOP (
 
     // --- Instanciação dos Módulos ---
 
-	 soma_cin_a U_somaCin (
-	 .a(a), .c_in(carry_in_switch),
-	 .AC(ac)
-	 );
-	 
-	 
     // 1. Unidades de operação
     // Soma (modo_sub=0, cin=carry_in_switch)
     somador_subtrator_4bits U_Soma (
@@ -67,44 +52,23 @@ module ULA_TOP (
         .s(resultado_sub), .cout(cout_sub), .ov(ov_sub)
     );
     
-	 // And
-    unidade_and_4bits U_AND (.AC(ac), .B(b), .S(resultado_and));
-	 
-	 // Or
-    unidade_or_4bits  U_OR  (.AC(ac), .B(b), .S(resultado_or));
-	 
-	 // Mutiplicação
-	 mutiplicacao_5x4 U_Mult (
-	 .a(ac), .b(b),
-	 .s(resultado_mult)
-	 );
-	 
-	 //XOR
-	 unidade_xor_5x4 U_xor (
-		.a(ac), .b(b),
-		.s(resultado_xor)
-	 );
-	 
-	 //Divisao
-	 divisao_5por4 U_div (
-		.a(ac), .b(b),
-		.s(resultado_div)
-	 );
+    unidade_and_4bits U_AND (.A(a), .B(b), .S(resultado_and));
+    unidade_or_4bits  U_OR  (.A(a), .B(b), .S(resultado_or));
     
     // 2. MUX principal de 8 para 1
-    mux_8_para_1_8bits U_MUX (
-        .D0(resultado_soma),    // Seletor 000: Soma
+    mux_8_para_1_4bits U_MUX (
+        .D0(resultado_soma),     // Seletor 000: Soma
         .D1(resultado_sub),     // Seletor 001: Subtração
         .D2(resultado_and),     // Seletor 010: AND
         .D3(resultado_or),      // Seletor 011: OR
-        .D4(resultado_mult),    // Seletor 100: Multiplicação
-        .D5(resultado_xor),     // Seletor 101: XOR
-        .D6(resultado_div),     // Seletor 110: Divisao
+        .D4(gnd_bus),           // Seletor 100: Não usado (saída 0)
+        .D5(gnd_bus),           // Seletor 101: Não usado (saída 0)
+        .D6(gnd_bus),           // Seletor 110: Não usado (saída 0)
         .D7(gnd_bus),           // Seletor 111: Não usado (saída 0)
-        .S(seletor),            // Conecta o seletor de 3 bits
+        .S(seletor),             // Conecta o seletor de 3 bits
         .Y(resultado_ula)
     );
-
+    
     // 3. Conversão e exibição
     bcd U_BCD (
         .B(resultado_ula), 
@@ -112,11 +76,7 @@ module ULA_TOP (
         .unidade_out(digito_unidade)
     );
     
-    decodificador_7seg ( .D(digito_unidade) , .SEG(HEX0));
-    decodificador_7seg ( .D(digito_dezena) ,  .SEG(HEX1));
-	 
-	 flag_zero (.HEX0(HEX0), .HEX1(HEX1), .ledr8(LEDR8));
-	 
-	 flag_error (.b(b), .seletor(seletor), .ledr9(LEDR9));
+    decodificador_7seg U_Display_Unidade (.D(digito_unidade), .SEG(HEX0));
+    decodificador_7seg U_Display_Dezena  (.D(digito_dezena),  .SEG(HEX1));
 
 endmodule

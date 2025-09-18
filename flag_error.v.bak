@@ -1,0 +1,15 @@
+module flag_error (
+	input wire [3:0] b,
+	input wire [2:0] seletor,
+	output ledr9
+);	
+	//Seletor negado
+	wire nSE0, nSE1, nSE2;
+	not se0 (nSE0, seletor[0]);
+	not se1 (nSE1, seletor[1]);
+	not se2 (nSE2, seletor[2]);
+	
+	//ledr9
+	nand fe0 (ledr9, seletor[0], nSE1, nSE2, b[0], b[1], b[2], b[3]);
+
+endmodule
