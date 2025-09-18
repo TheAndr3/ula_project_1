@@ -4,13 +4,8 @@ module divisao_5por4 (
 	output wire [4:0] s
 );
 
-	// --- Fios Intermediários ---
-	wire [4:0] s_div_result; // Fio para guardar o resultado da divisão original
-	wire b_is_zero;          // Fio que será '1' se b for 0000
-	wire not_b_is_zero;      // Inversão do fio b_is_zero
-
-	// --- Lógica de Divisão Original (sua implementação) ---
-
+	wire gnd = 1'b0;
+	
 	//Entradas negadas
 	wire nA0, nA1, nA2, nA3, nA4, nB0, nB1, nB2, nB3;
 	
@@ -64,7 +59,7 @@ module divisao_5por4 (
 	and d30 (na4a2a1a0nb3nb1_and, nA4, a[2], a[1], a[0], nB3, nB1);
 	and d31 (na4a3na2a0nb3b1b0_and, nA4, a[3], nA2, a[0], nB3, b[1], b[0]);
 	
-	or d0s0 (s_div_result[0], na4a3a1a0nb2_and, na4a3a2b3nb2_and, na4a3a0nb2nb1_and, na4a0nb3nb2nb1_and, na4a3a1nb2nb0_and, na4a1nb3nb2nb0_and,
+	or d0s0 (s[0], na4a3a1a0nb2_and, na4a3a2b3nb2_and, na4a3a0nb2nb1_and, na4a0nb3nb2nb1_and, na4a3a1nb2nb0_and, na4a1nb3nb2nb0_and,
 	na4a3a2nb1nb0_and, na4a2nb3nb1nb0_and, na4a3nb2nb1nb0_and, na4a3a2a1a0b3_and, na4na2a1a0nb3nb2_and, na4a3na2a1nb3b1_and,
 	na4a3na2nb3b2b1_and, na4a3a2a1b3nb1_and, na4a3a2a0b3nb1_and, na4na3a2a0nb3nb1_and, na4a3a1b3nb2nb1_and, na4a3a2a1b3nb0_and,
 	na4na3a2a1nb3nb0_and, a4na3na2na1na0b3b2_and, na4na3a2a1a0nb3b2_and, a4na3na2na1na0b3b1_and, na4na3a2a1nb3b2nb1_and,
@@ -87,7 +82,7 @@ module divisao_5por4 (
 	and d41 (a4na3na2na1na0nb3b2b0_and, a[4], nA3, nA2, nA1, nA0, nB3, b[2], b[0]);
 	and d42 (a4na3na2na1na0nb2nb1nb0_and, a[4], nA3, nA2, nA1, nA0, nB2, nB1, nB0);
 	
-	or d1s1 (s_div_result[1], na4a3a1nb3nb1_and, na4a1nb3nb2nb1_and, na4a3a2nb3nb0_and, na4a2nb3nb2nb0_and, na4a3a2a1nb3b2_and, na4na3a2a1nb3nb2_and,
+	or d1s1 (s[1], na4a3a1nb3nb1_and, na4a1nb3nb2nb1_and, na4a3a2nb3nb0_and, na4a2nb3nb2nb0_and, na4a3a2a1nb3b2_and, na4na3a2a1nb3nb2_and,
 	na4a3a2nb3b2nb1_and, na4a3na2nb3nb2b1b0_and, a4na3na2na1na0nb3b2b1_and, a4na3na2na1na0nb3b2b0_and, a4na3na2na1na0nb2nb1nb0_and);
 	
 	//s2
@@ -100,7 +95,7 @@ module divisao_5por4 (
 	and d46 (a4na3na2na1na0nb3nb1nb0_and, a[4], nA3, nA2, nA1, nA0, nB3, nB1, nB0);
 	and d47 (a4na3na2na1na0nb3nb2b1b0_and, a[4], nA3, nA2, nA1, nA0, nB3, nB2, b[1], b[0]);
 	
-	or d2s2 (s_div_result[2], na4a3a2nb3nb2_and, na4a2nb3nb2nb1_and, na4a3nb3nb2nb0_and, a4na3na2na1na0nb3nb1nb0_and,
+	or d2s2 (s[2], na4a3a2nb3nb2_and, na4a2nb3nb2nb1_and, na4a3nb3nb2nb0_and, a4na3na2na1na0nb3nb1nb0_and,
 	a4na3na2na1na0nb3nb2b1b0_and);
 	
 	//s3
@@ -109,11 +104,10 @@ module divisao_5por4 (
 	and d48 (na4a3nb3nb2nb1_and, nA4, a[3], nB3, nB2, nB1);
 	and d49 (a4na3na2na1na0nb3nb2nb0_and, a[4], nA3, nA2, nA1, nA0, nB3, nB2, nB0);
 	
-	or d3s3 (s_div_result[3], na4a3nb3nb2nb1_and, a4na3na2na1na0nb3nb2nb0_and);
+	or d3s3 (s[3], na4a3nb3nb2nb1_and, a4na3na2na1na0nb3nb2nb0_and);
 	
 	//s4
-	and d4s4 (s_div_result[4], a[4], nA3, nA2, nA1, nA0, nB3, nB2, nB1);
-	
+	and d4s4 (s[4], a[4], nA3, nA2, nA1, nA0, nB3, nB2, nB1);
 	
 	// --- Lógica de Proteção Contra Divisão por Zero ---
 	
