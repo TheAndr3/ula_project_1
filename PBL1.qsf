@@ -56,7 +56,6 @@ set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
 set_global_assignment -name VERILOG_FILE ULA_TOP.v
 set_global_assignment -name VERILOG_FILE decodificador_7seg.v
-set_global_assignment -name VERILOG_FILE bcd.v
 set_global_assignment -name VERILOG_FILE full_adder.v
 set_global_assignment -name VERILOG_FILE mux_8_para_1.v
 set_global_assignment -name VERILOG_FILE somador_subtrator_4bits.v
@@ -100,4 +99,23 @@ set_global_assignment -name VERILOG_FILE flag_zero.v
 set_global_assignment -name VERILOG_FILE flag_error.v
 set_location_assignment PIN_B11 -to LEDR9
 set_location_assignment PIN_A11 -to LEDR8
+set_global_assignment -name VERILOG_FILE bin_to_bcd_8bit.v
+set_location_assignment PIN_B20 -to HEX2[0]
+set_location_assignment PIN_A20 -to HEX2[1]
+set_location_assignment PIN_B19 -to HEX2[2]
+set_location_assignment PIN_A21 -to HEX2[3]
+set_location_assignment PIN_B21 -to HEX2[4]
+set_location_assignment PIN_C22 -to HEX2[5]
+set_location_assignment PIN_B22 -to HEX2[6]
+set_global_assignment -name VERILOG_FILE output_files/bin_to_bcd_8bit_v2.v
+set_global_assignment -name VERILOG_FILE flag_cout.v
+set_location_assignment PIN_D14 -to LEDR7
+set_global_assignment -name VERILOG_FILE operacao_7seg.v
+set_location_assignment PIN_J20 -to HEX5[0]
+set_location_assignment PIN_K20 -to HEX5[1]
+set_location_assignment PIN_L18 -to HEX5[2]
+set_location_assignment PIN_N18 -to HEX5[3]
+set_location_assignment PIN_M20 -to HEX5[4]
+set_location_assignment PIN_N19 -to HEX5[5]
+set_location_assignment PIN_N20 -to HEX5[6]
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

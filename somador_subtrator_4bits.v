@@ -12,7 +12,8 @@ module somador_subtrator_4bits (
     // Fio para o operando B modificado (será 'B' para soma, 'NOT B' para subtração)
     wire [3:0] b_modificado;
     wire c1, c2, c3, c4;
-	wire gnd = 1'b0;
+	 wire gnd = 1'b0;
+	
 
     // 1. Inversor Controlável para o operando B (usando portas XOR)
     xor XOR0 (b_modificado[0], b[0], modo_sub);
@@ -26,5 +27,10 @@ module somador_subtrator_4bits (
     full_adder fa1 ( .a(a[1]), .b(b_modificado[1]), .cin(c1),           .s(s[1]), .cout(c2) );
     full_adder fa2 ( .a(a[2]), .b(b_modificado[2]), .cin(c2),           .s(s[2]), .cout(c3) );
     full_adder fa3 ( .a(a[3]), .b(b_modificado[3]), .cin(c3),           .s(s[3]), .cout(s[4]) );
+	 
+	 wire aux;
+	 not n0 (aux, s[4]);
+	 not n1 (cout, aux);
+	 
 
 endmodule

@@ -5,8 +5,11 @@ module ULA_TOP (
     // Saídas físicas da placa
     output wire [6:0] HEX0,
     output wire [6:0] HEX1,
+	 output wire [6:0] HEX2,
+	 output wire [6:0] HEX5,
 	 output LEDR9,
-	 output LEDR8
+	 output LEDR8,
+	 output LEDR7
 );
 
 	// Invertendo butoes
@@ -28,6 +31,7 @@ module ULA_TOP (
     wire [7:0] resultado_ula, resultado_mult;
     wire [3:0] digito_dezena;
     wire [3:0] digito_unidade;
+	 wire [3:0] digito_centena;
     
     // Fios para constantes
     wire vcc, gnd, not_a0;
@@ -106,17 +110,23 @@ module ULA_TOP (
     );
 
     // 3. Conversão e exibição
-    bcd U_BCD (
-        .B(resultado_ula), 
-        .dezena_out(digito_dezena), 
-        .unidade_out(digito_unidade)
-    );
+    bin_to_bcd_8bit_v2(
+		.S(resultado_ula),
+		.centena_out(digito_centena),
+		.dezena_out(digito_dezena),
+		.unidade_out(digito_unidade)
+	 );
     
     decodificador_7seg ( .D(digito_unidade) , .SEG(HEX0));
     decodificador_7seg ( .D(digito_dezena) ,  .SEG(HEX1));
+	 decodificador_7seg ( .D(digito_centena), .SEG(HEX2));
 	 
-	 flag_zero (.HEX0(HEX0), .HEX1(HEX1), .ledr8(LEDR8));
+	 operacao_7seg (.seletor(seletor), .HEX5(HEX5));
+	 
+	 flag_zero (.HEX0(HEX0), .HEX1(HEX1), .HEX2(HEX2), .ledr8(LEDR8));
 	 
 	 flag_error (.b(b), .seletor(seletor), .sub_neg(resultado_sub[3]), .ledr9(LEDR9));
+	 
+	 flag_cout(.cout_soma(cout_soma), .seletor(seletor), .ledr7(LEDR7));
 
 endmodule

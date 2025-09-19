@@ -1,9 +1,9 @@
 module flag_zero (
-	input [6:0] HEX0, HEX1,
+	input [6:0] HEX0, HEX1, HEX2,
 	output ledr8
 );
 
-	wire hex0_and, hex1_and, saida;
+	wire hex0_and, hex1_and, hex2_and, saida;
 	
 	// HEX0 negado
 	wire nHEX00, nHEX01, nHEX02, nHEX03, nHEX04, nHEX05;
@@ -23,8 +23,18 @@ module flag_zero (
 	not nH14 (nHEX14, HEX1[4]);
 	not nH15 (nHEX15, HEX1[5]);
 	
+	//HEX2 negado
+	wire nHEX20, nHEX21, nHEX22, nHEX23, nHEX24, nHEX25;
+	not nH20 (nHEX20, HEX2[0]);
+	not nH21 (nHEX21, HEX2[1]);
+	not nH22 (nHEX22, HEX2[2]);
+	not nH23 (nHEX23, HEX2[3]);
+	not nH24 (nHEX24, HEX2[4]);
+	not nH25 (nHEX25, HEX2[5]);
+	
 	and fz0 (hex0_and, nHEX00, nHEX01, nHEX02, nHEX03, nHEX04, nHEX05, HEX0[6]);
 	and fz1 (hex1_and, nHEX10, nHEX11, nHEX12, nHEX13, nHEX14, nHEX15, HEX1[6]);
-	and fz (ledr8, hex0_and, hex1_and);
+	and fz2 (hex2_and, nHEX20, nHEX21, nHEX22, nHEX23, nHEX24, nHEX25, HEX2[6]);
+	and fz (ledr8, hex0_and, hex1_and, hex2_and);
 
 endmodule

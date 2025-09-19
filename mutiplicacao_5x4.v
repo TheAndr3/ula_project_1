@@ -32,7 +32,7 @@ module mutiplicacao_5x4 (
 	);
 	and f2s2 (a0b2_and, a[0], b[2]);
 	full_adder soma11 (
-	a0b2_and, soma_2, gnd,
+	a0b2_and, soma_02, gnd,
 	s[2], cout11
 	);
 	

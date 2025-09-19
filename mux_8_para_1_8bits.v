@@ -4,7 +4,7 @@ module mux_8_para_1_8bits (
 	 input D2, D3,  D5, 
 	 input wire [7:0] D4, D7,
     input  wire [2:0] S,
-    output wire [4:0] Y
+    output wire [7:0] Y
 );
 
 	wire gnd = 1'b0;
@@ -38,17 +38,17 @@ module mux_8_para_1_8bits (
 	 mux_8_para_1 MUX_BIT5 (
         .D0(gnd), .D1(gnd), .D2(gnd), .D3(gnd),
         .D4(D4[5]), .D5(gnd), .D6(gnd), .D7(D7[4]),
-        .S(S), .Y(Y[4])
+        .S(S), .Y(Y[5])
     );
 	 mux_8_para_1 MUX_BIT6 (
         .D0(gnd), .D1(gnd), .D2(gnd), .D3(gnd),
         .D4(D4[6]), .D5(gnd), .D6(gnd), .D7(D7[4]),
-        .S(S), .Y(Y[4])
+        .S(S), .Y(Y[6])
     );
 	 mux_8_para_1 MUX_BIT7 (
         .D0(gnd), .D1(gnd), .D2(gnd), .D3(gnd),
         .D4(D4[7]), .D5(gnd), .D6(gnd), .D7(D7[4]),
-        .S(S), .Y(Y[4])
+        .S(S), .Y(Y[7])
     );
 
 endmodule
