@@ -27,7 +27,7 @@ module ULA_TOP (
 	 wire [4:0] ac;
     wire [4:0] resultado_soma, resultado_sub, resultado_div;
 	 wire resultado_and, resultado_or, resultado_xor;
-    wire cout_soma, ov_soma, cout_sub, ov_sub;
+    wire cout_soma, ov_soma, cout_sub, ov_sub, borrow_sub;
     wire [7:0] resultado_ula, resultado_mult;
     wire [3:0] digito_dezena;
     wire [3:0] digito_unidade;
@@ -64,7 +64,6 @@ module ULA_TOP (
         .s(resultado_soma), .cout(cout_soma)
     );
 
-    // 2. SUBTRAÇÃO: Usa o novo subtrator de 4 bits. O carry_in da chave NÃO entra aqui.
     subtrator_4bits U_Sub (
         .a(a), .b(b),
         .s(resultado_sub), .borrow_out(borrow_sub)
