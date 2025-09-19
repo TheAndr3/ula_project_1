@@ -66,8 +66,8 @@ module ULA_TOP (
     );
 
     // Subtração (modo_sub=1, cin=1)
-    somador_subtrator_4bits U_Sub (
-        .a(a), .b(b), .modo_sub(vcc), .cin_inicial(vcc),
+    subtrator_5x4bits_v2 U_Sub (
+        .a(ac), .b(b), .modo_sub(vcc), .cin_inicial(vcc),
         .s(resultado_sub), .cout(cout_sub), .ov(ov_sub)
     );
     
@@ -125,7 +125,7 @@ module ULA_TOP (
 	 
 	 flag_zero (.HEX0(HEX0), .HEX1(HEX1), .HEX2(HEX2), .ledr8(LEDR8));
 	 
-	 flag_error (.b(b), .seletor(seletor), .sub_neg(resultado_sub[3]), .ledr9(LEDR9));
+	 flag_error (.b(b), .seletor(seletor), .sub_neg(cout_sub), .ledr9(LEDR9));
 	 
 	 flag_cout(.cout_soma(cout_soma), .seletor(seletor), .ledr7(LEDR7));
 	 

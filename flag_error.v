@@ -29,8 +29,9 @@ module flag_error (
 	
 	// Condição 3 (NOVA): Resultado da subtração é negativo
 	// Ativa se (seletor == 001) E (sub_neg == 1)
-	wire sub_neg_erro;
-	and fe_sub_neg (sub_neg_erro, seletor[0], nSE1, nSE2, sub_neg);
+	wire sub_neg_erro, nsub_neg;
+	not nab0 (nsub_neg, sub_neg);
+	and fe_sub_neg (sub_neg_erro, seletor[0], nSE1, nSE2, nsub_neg);
 
 	// --- Saída Final ---
 	// O LED de erro acende se QUALQUER uma das condições for verdadeira

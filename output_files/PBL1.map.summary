@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Fri Sep 19 11:25:52 2025
+Analysis & Synthesis Status : Successful - Fri Sep 19 14:12:38 2025
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : PBL1
 Top-level Entity Name : ULA_TOP
 Family : MAX 10
-Total logic elements : 283
-    Total combinational functions : 283
+Total logic elements : 272
+    Total combinational functions : 272
     Dedicated logic registers : 0
 Total registers : 0
 Total pins : 44
