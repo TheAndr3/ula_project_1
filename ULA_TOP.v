@@ -9,7 +9,8 @@ module ULA_TOP (
 	 output wire [6:0] HEX5,
 	 output LEDR9,
 	 output LEDR8,
-	 output LEDR7
+	 output LEDR7,
+	 output LEDR6
 );
 
 	// Invertendo butoes
@@ -25,9 +26,8 @@ module ULA_TOP (
 
     // --- Fios Intermediários ---
 	 wire [4:0] ac;
-    wire [4:0] resultado_soma, resultado_sub, resultado_div;
-	 wire resultado_and, resultado_or, resultado_xor;
-    wire cout_soma, ov_soma, cout_sub, ov_sub, borrow_sub;
+    wire [4:0] resultado_div, resultado_soma, resultado_and, resultado_or, resultado_xor, resultado_sub;
+    wire cout_soma, ov_soma, cout_sub, ov_sub;
     wire [7:0] resultado_ula, resultado_mult;
     wire [3:0] digito_dezena;
     wire [3:0] digito_unidade;
@@ -58,15 +58,17 @@ module ULA_TOP (
 	 );
 	 
 	 
-    // 1. SOMA: Usa o novo somador de 4 bits. O carry_in da chave entra aqui.
-    somador_4bits U_Soma (
-        .a(a), .b(b), .cin(carry_in_switch),
-        .s(resultado_soma), .cout(cout_soma)
+    // 1. Unidades de operação
+    // Soma (modo_sub=0, cin=carry_in_switch)
+    somador_subtrator_4bits U_Soma (
+        .a(a), .b(b), .modo_sub(gnd), .cin_inicial(carry_in_switch),
+        .s(resultado_soma), .cout(cout_soma), .ov(ov_soma)
     );
 
-    subtrator_4bits U_Sub (
-        .a(a), .b(b),
-        .s(resultado_sub), .borrow_out(borrow_sub)
+    // Subtração (modo_sub=1, cin=1)
+    subtrator_5x4bits_v2 U_Sub (
+        .a(ac), .b(b), .modo_sub(vcc), .cin_inicial(vcc),
+        .s(resultado_sub), .cout(cout_sub), .ov(ov_sub)
     );
     
 	 // And
@@ -123,8 +125,10 @@ module ULA_TOP (
 	 
 	 flag_zero (.HEX0(HEX0), .HEX1(HEX1), .HEX2(HEX2), .ledr8(LEDR8));
 	 
-	 flag_error (.b(b), .seletor(seletor), .sub_neg(resultado_sub[3]), .ledr9(LEDR9));
+	 flag_error (.b(b), .seletor(seletor), .sub_neg(cout_sub), .ledr9(LEDR9));
 	 
 	 flag_cout(.cout_soma(cout_soma), .seletor(seletor), .ledr7(LEDR7));
+	 
+	 flag_ov (.ledr6(LEDR6));
 
 endmodule
