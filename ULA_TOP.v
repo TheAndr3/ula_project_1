@@ -117,6 +117,6 @@ module ULA_TOP (
 	 
 	 flag_zero (.HEX0(HEX0), .HEX1(HEX1), .ledr8(LEDR8));
 	 
-	 flag_error (.b(b), .seletor(seletor), .ledr9(LEDR9));
+	 flag_error (.b(b), .seletor(seletor), .sub_neg(resultado_sub[3]), .ledr9(LEDR9));
 
 endmodule
