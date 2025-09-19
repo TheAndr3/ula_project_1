@@ -58,17 +58,16 @@ module ULA_TOP (
 	 );
 	 
 	 
-    // 1. Unidades de operação
-    // Soma (modo_sub=0, cin=carry_in_switch)
-    somador_subtrator_4bits U_Soma (
-        .a(a), .b(b), .modo_sub(gnd), .cin_inicial(carry_in_switch),
-        .s(resultado_soma), .cout(cout_soma), .ov(ov_soma)
+    // 1. SOMA: Usa o novo somador de 4 bits. O carry_in da chave entra aqui.
+    somador_4bits U_Soma (
+        .a(a), .b(b), .cin(carry_in_switch),
+        .s(resultado_soma), .cout(cout_soma)
     );
 
-    // Subtração (modo_sub=1, cin=1)
-    somador_subtrator_4bits U_Sub (
-        .a(a), .b(b), .modo_sub(vcc), .cin_inicial(vcc),
-        .s(resultado_sub), .cout(cout_sub), .ov(ov_sub)
+    // 2. SUBTRAÇÃO: Usa o novo subtrator de 4 bits. O carry_in da chave NÃO entra aqui.
+    subtrator_4bits U_Sub (
+        .a(a), .b(b),
+        .s(resultado_sub), .borrow_out(borrow_sub)
     );
     
 	 // And
