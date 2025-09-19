@@ -6,23 +6,13 @@ module full_adder (
     output wire cout
 );
 
-
-    wire not_a, not_b, not_cin;
-    wire term_s1, term_s2, term_s3, term_s4;
-    wire term_c1, term_c2, term_c3;
-	 
-    not U1_not_a (not_a, a);
-    not U2_not_b (not_b, b);
-    not U3_not_cin (not_cin, cin);
-
     // s = (~a & ~b & cin) | (~a & b & ~cin) | (a & ~b & ~cin) | (a & b & cin);
-    and U4_and_s1 (term_s1, not_a, not_b, cin);
-    and U5_and_s2 (term_s2, not_a, b, not_cin);
-    and U6_and_s3 (term_s3, a, not_b, not_cin);
-    and U7_and_s4 (term_s4, a, b, cin);
-    or  U8_or_s   (s, term_s1, term_s2, term_s3, term_s4);
+    wire term_s1;	 
+	 xor (term_s1, b, cin);
+    xor  U8_or_s   (s, term_s1, a);
 
     // cout = (b & cin) | (a & cin) | (a & b);
+    wire term_c1, term_c2, term_c3;	 
     and U9_and_c1  (term_c1, b, cin);
     and U10_and_c2 (term_c2, a, cin);
     and U11_and_c3 (term_c3, a, b);

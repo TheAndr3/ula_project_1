@@ -1,0 +1,4 @@
+Info (10281): Verilog HDL Declaration information at flag_error.v(14): object "nB0" differs only in case from object "nb0" in the same scope File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/flag_error.v Line: 14
+Info (10281): Verilog HDL Declaration information at flag_error.v(14): object "nB1" differs only in case from object "nb1" in the same scope File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/flag_error.v Line: 14
+Info (10281): Verilog HDL Declaration information at flag_error.v(14): object "nB2" differs only in case from object "nb2" in the same scope File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/flag_error.v Line: 14
+Info (10281): Verilog HDL Declaration information at flag_error.v(14): object "nB3" differs only in case from object "nb3" in the same scope File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/flag_error.v Line: 14
