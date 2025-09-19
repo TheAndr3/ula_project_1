@@ -1,5 +1,5 @@
 Fitter report for PBL1
-Fri Sep 19 09:13:04 2025
+Fri Sep 19 11:25:58 2025
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -63,18 +63,18 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                      ;
 +------------------------------------+------------------------------------------------+
-; Fitter Status                      ; Successful - Fri Sep 19 09:13:04 2025          ;
+; Fitter Status                      ; Successful - Fri Sep 19 11:25:58 2025          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; PBL1                                           ;
 ; Top-level Entity Name              ; ULA_TOP                                        ;
 ; Family                             ; MAX 10                                         ;
 ; Device                             ; 10M50DCF484C7G                                 ;
 ; Timing Models                      ; Final                                          ;
-; Total logic elements               ; 281 / 49,760 ( < 1 % )                         ;
-;     Total combinational functions  ; 281 / 49,760 ( < 1 % )                         ;
+; Total logic elements               ; 284 / 49,760 ( < 1 % )                         ;
+;     Total combinational functions  ; 284 / 49,760 ( < 1 % )                         ;
 ;     Dedicated logic registers      ; 0 / 49,760 ( 0 % )                             ;
 ; Total registers                    ; 0                                              ;
-; Total pins                         ; 43 / 360 ( 12 % )                              ;
+; Total pins                         ; 44 / 360 ( 12 % )                              ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                          ;
 ; Embedded Multiplier 9-bit elements ; 0 / 288 ( 0 % )                                ;
@@ -146,15 +146,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 20          ;
-; Maximum allowed            ; 14          ;
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
 ;                            ;             ;
-; Average used               ; 1.19        ;
-; Maximum used               ; 14          ;
+; Average used               ; 1.16        ;
+; Maximum used               ; 12          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-14        ;   1.5%      ;
+;     Processors 2-12        ;   1.5%      ;
 +----------------------------+-------------+
 
 
@@ -164,8 +164,8 @@ https://fpgasoftware.intel.com/eula.
 ; Type                ; Total [A + B]      ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+--------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                    ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 384 ) ; 0.00 % ( 0 / 384 )         ; 0.00 % ( 0 / 384 )       ;
-;     -- Achieved     ; 0.00 % ( 0 / 384 ) ; 0.00 % ( 0 / 384 )         ; 0.00 % ( 0 / 384 )       ;
+;     -- Requested    ; 0.00 % ( 0 / 389 ) ; 0.00 % ( 0 / 389 )         ; 0.00 % ( 0 / 389 )       ;
+;     -- Achieved     ; 0.00 % ( 0 / 389 ) ; 0.00 % ( 0 / 389 )         ; 0.00 % ( 0 / 389 )       ;
 ;                     ;                    ;                            ;                          ;
 ; Routing (by net)    ;                    ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )   ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -188,7 +188,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 370 )    ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 375 )    ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 14 )     ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -204,28 +204,28 @@ The pin-out file can be found in /home/aluno/Documentos/ft_quartus/ula_project-t
 +---------------------------------------------+------------------------+
 ; Resource                                    ; Usage                  ;
 +---------------------------------------------+------------------------+
-; Total logic elements                        ; 281 / 49,760 ( < 1 % ) ;
-;     -- Combinational with no register       ; 281                    ;
+; Total logic elements                        ; 284 / 49,760 ( < 1 % ) ;
+;     -- Combinational with no register       ; 284                    ;
 ;     -- Register only                        ; 0                      ;
 ;     -- Combinational with a register        ; 0                      ;
 ;                                             ;                        ;
 ; Logic element usage by number of LUT inputs ;                        ;
-;     -- 4 input functions                    ; 208                    ;
-;     -- 3 input functions                    ; 47                     ;
-;     -- <=2 input functions                  ; 26                     ;
+;     -- 4 input functions                    ; 215                    ;
+;     -- 3 input functions                    ; 50                     ;
+;     -- <=2 input functions                  ; 19                     ;
 ;     -- Register only                        ; 0                      ;
 ;                                             ;                        ;
 ; Logic elements by mode                      ;                        ;
-;     -- normal mode                          ; 281                    ;
+;     -- normal mode                          ; 284                    ;
 ;     -- arithmetic mode                      ; 0                      ;
 ;                                             ;                        ;
 ; Total registers*                            ; 0 / 51,509 ( 0 % )     ;
 ;     -- Dedicated logic registers            ; 0 / 49,760 ( 0 % )     ;
 ;     -- I/O registers                        ; 0 / 1,749 ( 0 % )      ;
 ;                                             ;                        ;
-; Total LABs:  partially or completely used   ; 21 / 3,110 ( < 1 % )   ;
+; Total LABs:  partially or completely used   ; 23 / 3,110 ( < 1 % )   ;
 ; Virtual pins                                ; 0                      ;
-; I/O pins                                    ; 43 / 360 ( 12 % )      ;
+; I/O pins                                    ; 44 / 360 ( 12 % )      ;
 ;     -- Clock pins                           ; 0 / 8 ( 0 % )          ;
 ;     -- Dedicated input pins                 ; 1 / 1 ( 100 % )        ;
 ;                                             ;                        ;
@@ -242,12 +242,12 @@ The pin-out file can be found in /home/aluno/Documentos/ft_quartus/ula_project-t
 ; Remote update blocks                        ; 0 / 1 ( 0 % )          ;
 ; Oscillator blocks                           ; 0 / 1 ( 0 % )          ;
 ; Impedance control blocks                    ; 0 / 1 ( 0 % )          ;
-; Average interconnect usage (total/H/V)      ; 0.1% / 0.1% / 0.2%     ;
-; Peak interconnect usage (total/H/V)         ; 2.6% / 2.8% / 2.5%     ;
-; Maximum fan-out                             ; 47                     ;
-; Highest non-global fan-out                  ; 47                     ;
-; Total fan-out                               ; 1105                   ;
-; Average fan-out                             ; 2.88                   ;
+; Average interconnect usage (total/H/V)      ; 0.2% / 0.1% / 0.2%     ;
+; Peak interconnect usage (total/H/V)         ; 3.6% / 3.5% / 3.8%     ;
+; Maximum fan-out                             ; 43                     ;
+; Highest non-global fan-out                  ; 43                     ;
+; Total fan-out                               ; 1129                   ;
+; Average fan-out                             ; 2.90                   ;
 +---------------------------------------------+------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -260,29 +260,29 @@ The pin-out file can be found in /home/aluno/Documentos/ft_quartus/ula_project-t
 +---------------------------------------------+-----------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                   ; Low                            ;
 ;                                             ;                       ;                                ;
-; Total logic elements                        ; 281 / 49760 ( < 1 % ) ; 0 / 49760 ( 0 % )              ;
-;     -- Combinational with no register       ; 281                   ; 0                              ;
+; Total logic elements                        ; 284 / 49760 ( < 1 % ) ; 0 / 49760 ( 0 % )              ;
+;     -- Combinational with no register       ; 284                   ; 0                              ;
 ;     -- Register only                        ; 0                     ; 0                              ;
 ;     -- Combinational with a register        ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Logic element usage by number of LUT inputs ;                       ;                                ;
-;     -- 4 input functions                    ; 208                   ; 0                              ;
-;     -- 3 input functions                    ; 47                    ; 0                              ;
-;     -- <=2 input functions                  ; 26                    ; 0                              ;
+;     -- 4 input functions                    ; 215                   ; 0                              ;
+;     -- 3 input functions                    ; 50                    ; 0                              ;
+;     -- <=2 input functions                  ; 19                    ; 0                              ;
 ;     -- Register only                        ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Logic elements by mode                      ;                       ;                                ;
-;     -- normal mode                          ; 281                   ; 0                              ;
+;     -- normal mode                          ; 284                   ; 0                              ;
 ;     -- arithmetic mode                      ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Total registers                             ; 0                     ; 0                              ;
 ;     -- Dedicated logic registers            ; 0 / 49760 ( 0 % )     ; 0 / 49760 ( 0 % )              ;
 ;     -- I/O registers                        ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
-; Total LABs:  partially or completely used   ; 21 / 3110 ( < 1 % )   ; 0 / 3110 ( 0 % )               ;
+; Total LABs:  partially or completely used   ; 23 / 3110 ( < 1 % )   ; 0 / 3110 ( 0 % )               ;
 ;                                             ;                       ;                                ;
 ; Virtual pins                                ; 0                     ; 0                              ;
-; I/O pins                                    ; 43                    ; 0                              ;
+; I/O pins                                    ; 44                    ; 0                              ;
 ; Embedded Multiplier 9-bit elements          ; 0 / 288 ( 0 % )       ; 0 / 288 ( 0 % )                ;
 ; Total memory bits                           ; 0                     ; 0                              ;
 ; Total RAM block bits                        ; 0                     ; 0                              ;
@@ -296,7 +296,7 @@ The pin-out file can be found in /home/aluno/Documentos/ft_quartus/ula_project-t
 ;     -- Registered Output Connections        ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Internal Connections                        ;                       ;                                ;
-;     -- Total Connections                    ; 1112                  ; 7                              ;
+;     -- Total Connections                    ; 1136                  ; 7                              ;
 ;     -- Registered Connections               ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
 ; External Connections                        ;                       ;                                ;
@@ -305,7 +305,7 @@ The pin-out file can be found in /home/aluno/Documentos/ft_quartus/ula_project-t
 ;                                             ;                       ;                                ;
 ; Partition Interface                         ;                       ;                                ;
 ;     -- Input Ports                          ; 12                    ; 0                              ;
-;     -- Output Ports                         ; 31                    ; 0                              ;
+;     -- Output Ports                         ; 32                    ; 0                              ;
 ;     -- Bidir Ports                          ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Registered Ports                            ;                       ;                                ;
@@ -329,18 +329,18 @@ The pin-out file can be found in /home/aluno/Documentos/ft_quartus/ula_project-t
 +--------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 ; Name   ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination Control Block ; Location assigned by ; Slew Rate ;
 +--------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
-; KEY[0] ; B8    ; 7        ; 46           ; 54           ; 28           ; 25                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; 0         ;
-; KEY[1] ; A7    ; 7        ; 49           ; 54           ; 28           ; 23                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; 0         ;
-; SW[0]  ; C10   ; 7        ; 51           ; 54           ; 28           ; 16                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; 0         ;
-; SW[1]  ; C11   ; 7        ; 51           ; 54           ; 21           ; 9                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; 0         ;
-; SW[2]  ; D12   ; 7        ; 51           ; 54           ; 0            ; 6                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; 0         ;
-; SW[3]  ; C12   ; 7        ; 54           ; 54           ; 28           ; 14                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; 0         ;
-; SW[4]  ; A12   ; 7        ; 54           ; 54           ; 21           ; 30                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; 0         ;
-; SW[5]  ; B12   ; 7        ; 49           ; 54           ; 0            ; 28                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; 0         ;
-; SW[6]  ; A13   ; 7        ; 54           ; 54           ; 14           ; 31                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; 0         ;
-; SW[7]  ; A14   ; 7        ; 58           ; 54           ; 28           ; 24                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; 0         ;
-; SW[8]  ; B14   ; 7        ; 56           ; 54           ; 0            ; 13                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; 0         ;
-; SW[9]  ; F15   ; 7        ; 69           ; 54           ; 0            ; 34                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; 0         ;
+; KEY[0] ; B8    ; 7        ; 46           ; 54           ; 28           ; 26                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; 0         ;
+; KEY[1] ; A7    ; 7        ; 49           ; 54           ; 28           ; 27                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; 0         ;
+; SW[0]  ; C10   ; 7        ; 51           ; 54           ; 28           ; 14                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; 0         ;
+; SW[1]  ; C11   ; 7        ; 51           ; 54           ; 21           ; 8                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; 0         ;
+; SW[2]  ; D12   ; 7        ; 51           ; 54           ; 0            ; 7                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; 0         ;
+; SW[3]  ; C12   ; 7        ; 54           ; 54           ; 28           ; 13                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; 0         ;
+; SW[4]  ; A12   ; 7        ; 54           ; 54           ; 21           ; 28                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; 0         ;
+; SW[5]  ; B12   ; 7        ; 49           ; 54           ; 0            ; 27                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; 0         ;
+; SW[6]  ; A13   ; 7        ; 54           ; 54           ; 14           ; 33                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; 0         ;
+; SW[7]  ; A14   ; 7        ; 58           ; 54           ; 28           ; 28                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; 0         ;
+; SW[8]  ; B14   ; 7        ; 56           ; 54           ; 0            ; 12                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; 0         ;
+; SW[9]  ; F15   ; 7        ; 69           ; 54           ; 0            ; 21                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; 0         ;
 +--------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 
 
@@ -377,6 +377,7 @@ The pin-out file can be found in /home/aluno/Documentos/ft_quartus/ula_project-t
 ; HEX5[4] ; M20   ; 6        ; 78           ; 34           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
 ; HEX5[5] ; N19   ; 6        ; 78           ; 34           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
 ; HEX5[6] ; N20   ; 6        ; 78           ; 34           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
+; LEDR6   ; E14   ; 7        ; 66           ; 54           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
 ; LEDR7   ; D14   ; 7        ; 56           ; 54           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
 ; LEDR8   ; A11   ; 7        ; 51           ; 54           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
 ; LEDR9   ; B11   ; 7        ; 49           ; 54           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
@@ -410,7 +411,7 @@ The pin-out file can be found in /home/aluno/Documentos/ft_quartus/ula_project-t
 ; 4        ; 0 / 48 ( 0 % )   ; 2.5V          ; --           ;
 ; 5        ; 0 / 40 ( 0 % )   ; 2.5V          ; --           ;
 ; 6        ; 14 / 60 ( 23 % ) ; 2.5V          ; --           ;
-; 7        ; 29 / 52 ( 56 % ) ; 2.5V          ; --           ;
+; 7        ; 30 / 52 ( 58 % ) ; 2.5V          ; --           ;
 ; 8        ; 3 / 36 ( 8 % )   ; 2.5V          ; --           ;
 +----------+------------------+---------------+--------------+
 
@@ -565,7 +566,7 @@ The pin-out file can be found in /home/aluno/Documentos/ft_quartus/ula_project-t
 ; E11      ; 464        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; E12      ; 429        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; E13      ; 430        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; E14      ; 406        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; E14      ; 406        ; 7        ; LEDR6                                          ; output ; 2.5 V                 ;         ; Column I/O ; Y               ; no       ; Off          ;
 ; E15      ; 390        ; 7        ; HEX0[1]                                        ; output ; 2.5 V                 ;         ; Column I/O ; Y               ; no       ; Off          ;
 ; E16      ; 388        ; 7        ; HEX0[4]                                        ; output ; 2.5 V                 ;         ; Column I/O ; Y               ; no       ; Off          ;
 ; E17      ; 366        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -944,18 +945,19 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ; LEDR9    ; Incomplete set of assignments ;
 ; LEDR8    ; Incomplete set of assignments ;
 ; LEDR7    ; Incomplete set of assignments ;
+; LEDR6    ; Incomplete set of assignments ;
+; KEY[0]   ; Incomplete set of assignments ;
 ; SW[9]    ; Incomplete set of assignments ;
 ; KEY[1]   ; Incomplete set of assignments ;
-; KEY[0]   ; Incomplete set of assignments ;
-; SW[4]    ; Incomplete set of assignments ;
-; SW[2]    ; Incomplete set of assignments ;
+; SW[7]    ; Incomplete set of assignments ;
+; SW[3]    ; Incomplete set of assignments ;
 ; SW[0]    ; Incomplete set of assignments ;
 ; SW[8]    ; Incomplete set of assignments ;
+; SW[2]    ; Incomplete set of assignments ;
 ; SW[1]    ; Incomplete set of assignments ;
-; SW[5]    ; Incomplete set of assignments ;
 ; SW[6]    ; Incomplete set of assignments ;
-; SW[3]    ; Incomplete set of assignments ;
-; SW[7]    ; Incomplete set of assignments ;
+; SW[4]    ; Incomplete set of assignments ;
+; SW[5]    ; Incomplete set of assignments ;
 +----------+-------------------------------+
 
 
@@ -964,15 +966,15 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +-------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+---------------------------------------------------------+-------------------------+--------------+
 ; Compilation Hierarchy Node          ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; ADC blocks ; Full Hierarchy Name                                     ; Entity Name             ; Library Name ;
 +-------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+---------------------------------------------------------+-------------------------+--------------+
-; |ULA_TOP                            ; 281 (1)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 1          ; 0            ; 0       ; 0         ; 43   ; 0            ; 281 (1)      ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP                                                ; ULA_TOP                 ; work         ;
-;    |bin_to_bcd_8bit_v2:comb_24|     ; 134 (134)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 134 (134)    ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|bin_to_bcd_8bit_v2:comb_24                     ; bin_to_bcd_8bit_v2      ; work         ;
-;    |decodificador_7seg:comb_25|     ; 9 (9)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 9 (9)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|decodificador_7seg:comb_25                     ; decodificador_7seg      ; work         ;
+; |ULA_TOP                            ; 284 (1)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 1          ; 0            ; 0       ; 0         ; 44   ; 0            ; 284 (1)      ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP                                                ; ULA_TOP                 ; work         ;
+;    |bin_to_bcd_8bit_v2:comb_24|     ; 128 (128)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 128 (128)    ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|bin_to_bcd_8bit_v2:comb_24                     ; bin_to_bcd_8bit_v2      ; work         ;
+;    |decodificador_7seg:comb_25|     ; 12 (12)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 12 (12)      ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|decodificador_7seg:comb_25                     ; decodificador_7seg      ; work         ;
 ;    |decodificador_7seg:comb_26|     ; 9 (9)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 9 (9)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|decodificador_7seg:comb_26                     ; decodificador_7seg      ; work         ;
 ;    |decodificador_7seg:comb_27|     ; 3 (3)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|decodificador_7seg:comb_27                     ; decodificador_7seg      ; work         ;
-;    |divisao_5por4:U_div|            ; 18 (18)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 18 (18)      ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|divisao_5por4:U_div                            ; divisao_5por4           ; work         ;
-;    |flag_error:comb_30|             ; 2 (2)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|flag_error:comb_30                             ; flag_error              ; work         ;
-;    |flag_zero:comb_29|              ; 4 (4)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|flag_zero:comb_29                              ; flag_zero               ; work         ;
-;    |mutiplicacao_5x4:U_Mult|        ; 31 (4)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 31 (4)       ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult                        ; mutiplicacao_5x4        ; work         ;
+;    |divisao_5por4:U_div|            ; 17 (17)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 17 (17)      ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|divisao_5por4:U_div                            ; divisao_5por4           ; work         ;
+;    |flag_error:comb_30|             ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|flag_error:comb_30                             ; flag_error              ; work         ;
+;    |flag_zero:comb_29|              ; 3 (3)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|flag_zero:comb_29                              ; flag_zero               ; work         ;
+;    |mutiplicacao_5x4:U_Mult|        ; 30 (4)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 30 (4)       ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult                        ; mutiplicacao_5x4        ; work         ;
 ;       |full_adder:soma01|           ; 2 (2)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult|full_adder:soma01      ; full_adder              ; work         ;
 ;       |full_adder:soma02|           ; 2 (2)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult|full_adder:soma02      ; full_adder              ; work         ;
 ;       |full_adder:soma03|           ; 2 (2)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult|full_adder:soma03      ; full_adder              ; work         ;
@@ -983,36 +985,35 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;       |full_adder:soma13|           ; 2 (2)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult|full_adder:soma13      ; full_adder              ; work         ;
 ;       |full_adder:soma14|           ; 2 (2)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult|full_adder:soma14      ; full_adder              ; work         ;
 ;       |full_adder:soma15|           ; 2 (2)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult|full_adder:soma15      ; full_adder              ; work         ;
-;       |full_adder:soma21|           ; 2 (2)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult|full_adder:soma21      ; full_adder              ; work         ;
+;       |full_adder:soma21|           ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult|full_adder:soma21      ; full_adder              ; work         ;
 ;       |full_adder:soma22|           ; 2 (2)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult|full_adder:soma22      ; full_adder              ; work         ;
 ;       |full_adder:soma23|           ; 2 (2)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult|full_adder:soma23      ; full_adder              ; work         ;
 ;       |full_adder:soma24|           ; 2 (2)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult|full_adder:soma24      ; full_adder              ; work         ;
 ;       |full_adder:soma25|           ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult|full_adder:soma25      ; full_adder              ; work         ;
-;    |mux_8_para_1_8bits:U_MUX|       ; 47 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 47 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX                       ; mux_8_para_1_8bits      ; work         ;
+;    |mux_8_para_1_8bits:U_MUX|       ; 62 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 62 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX                       ; mux_8_para_1_8bits      ; work         ;
 ;       |mux_8_para_1:MUX_BIT0|       ; 6 (6)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 6 (6)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0 ; mux_8_para_1            ; work         ;
-;       |mux_8_para_1:MUX_BIT1|       ; 13 (13)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 13 (13)      ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1 ; mux_8_para_1            ; work         ;
-;       |mux_8_para_1:MUX_BIT2|       ; 10 (10)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 10 (10)      ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2 ; mux_8_para_1            ; work         ;
-;       |mux_8_para_1:MUX_BIT3|       ; 8 (8)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3 ; mux_8_para_1            ; work         ;
-;       |mux_8_para_1:MUX_BIT4|       ; 5 (5)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 5 (5)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4 ; mux_8_para_1            ; work         ;
+;       |mux_8_para_1:MUX_BIT1|       ; 16 (16)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 16 (16)      ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1 ; mux_8_para_1            ; work         ;
+;       |mux_8_para_1:MUX_BIT2|       ; 15 (15)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 15 (15)      ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2 ; mux_8_para_1            ; work         ;
+;       |mux_8_para_1:MUX_BIT3|       ; 12 (12)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 12 (12)      ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3 ; mux_8_para_1            ; work         ;
+;       |mux_8_para_1:MUX_BIT4|       ; 10 (10)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 10 (10)      ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4 ; mux_8_para_1            ; work         ;
 ;       |mux_8_para_1:MUX_BIT5|       ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT5 ; mux_8_para_1            ; work         ;
-;       |mux_8_para_1:MUX_BIT6|       ; 2 (2)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT6 ; mux_8_para_1            ; work         ;
-;       |mux_8_para_1:MUX_BIT7|       ; 2 (2)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT7 ; mux_8_para_1            ; work         ;
+;       |mux_8_para_1:MUX_BIT6|       ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT6 ; mux_8_para_1            ; work         ;
+;       |mux_8_para_1:MUX_BIT7|       ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT7 ; mux_8_para_1            ; work         ;
 ;    |operacao_7seg:comb_28|          ; 5 (5)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 5 (5)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|operacao_7seg:comb_28                          ; operacao_7seg           ; work         ;
 ;    |soma_cin_a:U_somaCin|           ; 4 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 4 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|soma_cin_a:U_somaCin                           ; soma_cin_a              ; work         ;
 ;       |full_adder:U_s1|             ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|soma_cin_a:U_somaCin|full_adder:U_s1           ; full_adder              ; work         ;
 ;       |full_adder:U_s2|             ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|soma_cin_a:U_somaCin|full_adder:U_s2           ; full_adder              ; work         ;
 ;       |full_adder:U_s3|             ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|soma_cin_a:U_somaCin|full_adder:U_s3           ; full_adder              ; work         ;
 ;       |full_adder:U_s4|             ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|soma_cin_a:U_somaCin|full_adder:U_s4           ; full_adder              ; work         ;
-;    |somador_subtrator_4bits:U_Soma| ; 6 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 6 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|somador_subtrator_4bits:U_Soma                 ; somador_subtrator_4bits ; work         ;
+;    |somador_subtrator_4bits:U_Soma| ; 5 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 5 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|somador_subtrator_4bits:U_Soma                 ; somador_subtrator_4bits ; work         ;
 ;       |full_adder:fa0|              ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|somador_subtrator_4bits:U_Soma|full_adder:fa0  ; full_adder              ; work         ;
 ;       |full_adder:fa1|              ; 2 (2)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|somador_subtrator_4bits:U_Soma|full_adder:fa1  ; full_adder              ; work         ;
-;       |full_adder:fa2|              ; 2 (2)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|somador_subtrator_4bits:U_Soma|full_adder:fa2  ; full_adder              ; work         ;
+;       |full_adder:fa2|              ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|somador_subtrator_4bits:U_Soma|full_adder:fa2  ; full_adder              ; work         ;
 ;       |full_adder:fa3|              ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|somador_subtrator_4bits:U_Soma|full_adder:fa3  ; full_adder              ; work         ;
 ;    |somador_subtrator_4bits:U_Sub|  ; 3 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 3 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|somador_subtrator_4bits:U_Sub                  ; somador_subtrator_4bits ; work         ;
 ;       |full_adder:fa1|              ; 2 (2)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|somador_subtrator_4bits:U_Sub|full_adder:fa1   ; full_adder              ; work         ;
-;       |full_adder:fa2|              ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|somador_subtrator_4bits:U_Sub|full_adder:fa2   ; full_adder              ; work         ;
-;    |unidade_or_4bits:U_OR|          ; 2 (2)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|unidade_or_4bits:U_OR                          ; unidade_or_4bits        ; work         ;
-;    |unidade_xor_5x4:U_xor|          ; 3 (3)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|unidade_xor_5x4:U_xor                          ; unidade_xor_5x4         ; work         ;
+;       |full_adder:fa3|              ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|somador_subtrator_4bits:U_Sub|full_adder:fa3   ; full_adder              ; work         ;
+;    |unidade_and_4bits:U_AND|        ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |ULA_TOP|unidade_and_4bits:U_AND                        ; unidade_and_4bits       ; work         ;
 +-------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+---------------------------------------------------------+-------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -1053,18 +1054,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; LEDR9   ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; LEDR8   ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; LEDR7   ; Output   ; --            ; --            ; --                    ; --  ; --   ;
-; SW[9]   ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
-; KEY[1]  ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
+; LEDR6   ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; KEY[0]  ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
-; SW[4]   ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
-; SW[2]   ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
+; SW[9]   ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
+; KEY[1]  ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
+; SW[7]   ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
+; SW[3]   ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
 ; SW[0]   ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
 ; SW[8]   ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
+; SW[2]   ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
 ; SW[1]   ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
-; SW[5]   ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
-; SW[6]   ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
-; SW[3]   ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
-; SW[7]   ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
+; SW[6]   ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
+; SW[4]   ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
+; SW[5]   ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
 +---------+----------+---------------+---------------+-----------------------+-----+------+
 
 
@@ -1073,115 +1075,227 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------------------------------+-------------------+---------+
 ; Source Pin / Fanout                                             ; Pad To Core Index ; Setting ;
 +-----------------------------------------------------------------+-------------------+---------+
-; SW[9]                                                           ;                   ;         ;
+; KEY[0]                                                          ;                   ;         ;
 ;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_AND4~0  ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_OR_Y~3  ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_AND0~0  ; 1                 ; 6       ;
-;      - operacao_7seg:comb_28|a8~0                               ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_OR_Y~0  ; 1                 ; 6       ;
 ;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_OR_Y~1  ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT7|U_AND4    ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT6|U_AND4    ; 1                 ; 6       ;
-;      - bin_to_bcd_8bit_v2:comb_24|U3_OR~9                       ; 1                 ; 6       ;
-;      - bin_to_bcd_8bit_v2:comb_24|U2_OR~0                       ; 1                 ; 6       ;
-;      - bin_to_bcd_8bit_v2:comb_24|D0_AND1~0                     ; 1                 ; 6       ;
-;      - bin_to_bcd_8bit_v2:comb_24|U2_OR~16                      ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0|U_OR_Y~4  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_OR_Y~4  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~1  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_OR_Y~3  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_AND0~2  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_OR_Y~5  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4|U_OR_Y~1  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4|U_OR_Y~3  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4|U_OR_Y~5  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4|U_OR_Y~6  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_OR_Y~2  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_OR_Y~3  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_OR_Y~5  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_OR_Y~6  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_AND6~5  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0|U_OR_Y~2  ; 1                 ; 6       ;
 ;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0|U_OR_Y~5  ; 1                 ; 6       ;
-;      - bin_to_bcd_8bit_v2:comb_24|U1_OR~0                       ; 1                 ; 6       ;
-;      - bin_to_bcd_8bit_v2:comb_24|D0_AND15~0                    ; 1                 ; 6       ;
-;      - bin_to_bcd_8bit_v2:comb_24|U1_OR~6                       ; 1                 ; 6       ;
-;      - bin_to_bcd_8bit_v2:comb_24|U1_AND16~2                    ; 1                 ; 6       ;
-;      - bin_to_bcd_8bit_v2:comb_24|U1_OR~13                      ; 1                 ; 6       ;
-;      - bin_to_bcd_8bit_v2:comb_24|D0_AND4~1                     ; 1                 ; 6       ;
-;      - bin_to_bcd_8bit_v2:comb_24|D0_AND18~0                    ; 1                 ; 6       ;
-;      - bin_to_bcd_8bit_v2:comb_24|D0_AND3~1                     ; 1                 ; 6       ;
-;      - bin_to_bcd_8bit_v2:comb_24|D0_AND10                      ; 1                 ; 6       ;
-;      - bin_to_bcd_8bit_v2:comb_24|D0_AND8                       ; 1                 ; 6       ;
-;      - bin_to_bcd_8bit_v2:comb_24|D0_AND3~2                     ; 1                 ; 6       ;
-;      - bin_to_bcd_8bit_v2:comb_24|D1_OR~1                       ; 1                 ; 6       ;
-;      - bin_to_bcd_8bit_v2:comb_24|C1_OR~0                       ; 1                 ; 6       ;
-;      - operacao_7seg:comb_28|h50~0                              ; 1                 ; 6       ;
 ;      - operacao_7seg:comb_28|h51~0                              ; 1                 ; 6       ;
+;      - operacao_7seg:comb_28|a8~0                               ; 1                 ; 6       ;
 ;      - operacao_7seg:comb_28|h53~0                              ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_AND0~3  ; 1                 ; 6       ;
 ;      - operacao_7seg:comb_28|h55                                ; 1                 ; 6       ;
-;      - flag_error:comb_30|U_FINAL_ERROR~0                       ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~11 ; 1                 ; 6       ;
 ;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT5|U_AND4    ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0|U_OR_Y~7  ; 1                 ; 6       ;
-; KEY[1]                                                          ;                   ;         ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT6|U_AND4~2  ; 1                 ; 6       ;
+; SW[9]                                                           ;                   ;         ;
 ;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_AND4~0  ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_OR_Y~4  ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_AND0~0  ; 0                 ; 6       ;
-;      - operacao_7seg:comb_28|a8~0                               ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_OR_Y~0  ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_OR_Y~1  ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT7|U_AND4    ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT6|U_AND4    ; 0                 ; 6       ;
-;      - bin_to_bcd_8bit_v2:comb_24|U1_AND16~0                    ; 0                 ; 6       ;
-;      - bin_to_bcd_8bit_v2:comb_24|D0_AND4~0                     ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT6|U_AND4~0  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_OR_Y~2  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_OR_Y~3  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~0  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_OR_Y~0  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_AND0~2  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_OR_Y~5  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4|U_OR_Y~4  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4|U_OR_Y~6  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_OR_Y~2  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_OR_Y~3  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_OR_Y~7  ; 0                 ; 6       ;
 ;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0|U_OR_Y~2  ; 0                 ; 6       ;
 ;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0|U_OR_Y~3  ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0|U_OR_Y~5  ; 0                 ; 6       ;
 ;      - operacao_7seg:comb_28|h50~0                              ; 0                 ; 6       ;
 ;      - operacao_7seg:comb_28|h51~0                              ; 0                 ; 6       ;
+;      - operacao_7seg:comb_28|a8~0                               ; 0                 ; 6       ;
 ;      - operacao_7seg:comb_28|h53~0                              ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_AND0~1  ; 0                 ; 6       ;
 ;      - operacao_7seg:comb_28|h55                                ; 0                 ; 6       ;
-;      - flag_error:comb_30|U_FINAL_ERROR~0                       ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~11 ; 0                 ; 6       ;
 ;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT5|U_AND4    ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0|U_OR_Y~7  ; 0                 ; 6       ;
-; KEY[0]                                                          ;                   ;         ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT6|U_AND4~2  ; 0                 ; 6       ;
+; KEY[1]                                                          ;                   ;         ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_AND4~0  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_OR_Y~2  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_OR_Y~4  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~1  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_OR_Y~0  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_OR_Y~2  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_AND0~2  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_OR_Y~4  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4|U_OR_Y~4  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4|U_OR_Y~7  ; 1                 ; 6       ;
 ;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_OR_Y~0  ; 1                 ; 6       ;
 ;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_OR_Y~1  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_OR_Y~3  ; 1                 ; 6       ;
 ;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_OR_Y~4  ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_AND0~0  ; 1                 ; 6       ;
-;      - operacao_7seg:comb_28|a8~0                               ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4|U_OR_Y~2  ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_OR_Y~4  ; 1                 ; 6       ;
-;      - bin_to_bcd_8bit_v2:comb_24|D0_AND3~0                     ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_OR_Y~2  ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT7|U_AND4    ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT6|U_AND4    ; 1                 ; 6       ;
-;      - bin_to_bcd_8bit_v2:comb_24|D0_AND10~0                    ; 1                 ; 6       ;
-;      - bin_to_bcd_8bit_v2:comb_24|U1_AND16~0                    ; 1                 ; 6       ;
-;      - bin_to_bcd_8bit_v2:comb_24|D0_AND4~0                     ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT6|U_AND4~0  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_OR_Y~7  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_AND6~5  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0|U_OR_Y~0  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0|U_OR_Y~1  ; 1                 ; 6       ;
 ;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0|U_OR_Y~4  ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0|U_OR_Y~6  ; 1                 ; 6       ;
-;      - bin_to_bcd_8bit_v2:comb_24|D1_OR~7                       ; 1                 ; 6       ;
+;      - operacao_7seg:comb_28|h50~0                              ; 1                 ; 6       ;
 ;      - operacao_7seg:comb_28|h51~0                              ; 1                 ; 6       ;
+;      - operacao_7seg:comb_28|a8~0                               ; 1                 ; 6       ;
 ;      - operacao_7seg:comb_28|h53~0                              ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_AND0~1  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_AND0~3  ; 1                 ; 6       ;
 ;      - operacao_7seg:comb_28|h55                                ; 1                 ; 6       ;
-;      - flag_error:comb_30|U_FINAL_ERROR~0                       ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~11 ; 1                 ; 6       ;
 ;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT5|U_AND4    ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT6|U_AND4~2  ; 1                 ; 6       ;
+; SW[7]                                                           ;                   ;         ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma22|U12_or_c~0     ; 1                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma23|U12_or_c~0     ; 1                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma24|U8_or_s        ; 1                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma23|U8_or_s        ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~0  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~2  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~9  ; 1                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|f0s7                             ; 1                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma24|U12_or_c~0     ; 1                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma25|U8_or_s        ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_AND4    ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_OR_Y~0  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_OR_Y~2  ; 1                 ; 6       ;
+;      - somador_subtrator_4bits:U_Soma|full_adder:fa3|U8_or_s~0  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_OR_Y~4  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4|U_AND0~0  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4|U_OR_Y~1  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4|U_OR_Y~3  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4|U_OR_Y~5  ; 1                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma22|U8_or_s        ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_AND6~5  ; 1                 ; 6       ;
+;      - divisao_5por4:U_div|d0s0~0                               ; 1                 ; 6       ;
+;      - divisao_5por4:U_div|d0s0~3                               ; 1                 ; 6       ;
+;      - divisao_5por4:U_div|d0s0~5                               ; 1                 ; 6       ;
+;      - divisao_5por4:U_div|d0s0~6                               ; 1                 ; 6       ;
+;      - divisao_5por4:U_div|d0s0~15                              ; 1                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma21|U11_and_c3     ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_AND0    ; 1                 ; 6       ;
+; SW[3]                                                           ;                   ;         ;
+;      - soma_cin_a:U_somaCin|full_adder:U_s4|U8_or_s             ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_AND6~1  ; 1                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|f1s4~0                           ; 1                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|f0s7                             ; 1                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma15|U12_or_c~0     ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_OR_Y~1  ; 1                 ; 6       ;
+;      - somador_subtrator_4bits:U_Soma|full_adder:fa3|U8_or_s~0  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4|U_AND0~0  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4|U_OR_Y~1  ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4|U_OR_Y~3  ; 1                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma05|U8_or_s        ; 1                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma15|U8_or_s        ; 1                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_AND0    ; 1                 ; 6       ;
+; SW[0]                                                           ;                   ;         ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_AND6~0  ; 0                 ; 6       ;
+;      - soma_cin_a:U_somaCin|full_adder:U_s3|U8_or_s             ; 0                 ; 6       ;
+;      - soma_cin_a:U_somaCin|full_adder:U_s2|U8_or_s             ; 0                 ; 6       ;
+;      - soma_cin_a:U_somaCin|full_adder:U_s1|U8_or_s~0           ; 0                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|f1s2                             ; 0                 ; 6       ;
+;      - somador_subtrator_4bits:U_Sub|full_adder:fa1|U8_or_s     ; 0                 ; 6       ;
+;      - somador_subtrator_4bits:U_Soma|full_adder:fa0|U12_or_c~0 ; 0                 ; 6       ;
+;      - somador_subtrator_4bits:U_Sub|full_adder:fa1|U12_or_c~0  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0|U_OR_Y~0  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0|U_OR_Y~1  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0|U_OR_Y~3  ; 0                 ; 6       ;
+;      - divisao_5por4:U_div|d0s0~11                              ; 0                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma11|U11_and_c3     ; 0                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma21|U11_and_c3     ; 0                 ; 6       ;
+; SW[8]                                                           ;                   ;         ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_AND6~0  ; 0                 ; 6       ;
+;      - soma_cin_a:U_somaCin|full_adder:U_s3|U8_or_s             ; 0                 ; 6       ;
+;      - soma_cin_a:U_somaCin|full_adder:U_s2|U8_or_s             ; 0                 ; 6       ;
+;      - soma_cin_a:U_somaCin|full_adder:U_s1|U8_or_s~0           ; 0                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|f1s2                             ; 0                 ; 6       ;
+;      - somador_subtrator_4bits:U_Soma|full_adder:fa0|U12_or_c~0 ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0|U_OR_Y~0  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0|U_OR_Y~1  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0|U_OR_Y~3  ; 0                 ; 6       ;
+;      - divisao_5por4:U_div|d0s0~11                              ; 0                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma11|U11_and_c3     ; 0                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma21|U11_and_c3     ; 0                 ; 6       ;
+; SW[2]                                                           ;                   ;         ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_AND6~0  ; 0                 ; 6       ;
+;      - soma_cin_a:U_somaCin|full_adder:U_s3|U8_or_s             ; 0                 ; 6       ;
+;      - somador_subtrator_4bits:U_Soma|full_adder:fa2|U12_or_c~0 ; 0                 ; 6       ;
+;      - somador_subtrator_4bits:U_Sub|full_adder:fa3|U8_or_s     ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4|U_OR_Y~2  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_OR_Y~0  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_OR_Y~5  ; 0                 ; 6       ;
+; SW[1]                                                           ;                   ;         ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_AND6~0  ; 0                 ; 6       ;
+;      - soma_cin_a:U_somaCin|full_adder:U_s3|U8_or_s             ; 0                 ; 6       ;
+;      - soma_cin_a:U_somaCin|full_adder:U_s2|U8_or_s             ; 0                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|f1s2                             ; 0                 ; 6       ;
+;      - somador_subtrator_4bits:U_Sub|full_adder:fa1|U8_or_s     ; 0                 ; 6       ;
+;      - somador_subtrator_4bits:U_Soma|full_adder:fa1|U8_or_s~0  ; 0                 ; 6       ;
+;      - somador_subtrator_4bits:U_Soma|full_adder:fa1|U12_or_c~0 ; 0                 ; 6       ;
+;      - somador_subtrator_4bits:U_Sub|full_adder:fa1|U12_or_c~0  ; 0                 ; 6       ;
+; SW[6]                                                           ;                   ;         ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma12|U12_or_c~0     ; 0                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma13|U12_or_c~0     ; 0                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma14|U12_or_c~0     ; 0                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma12|U8_or_s        ; 0                 ; 6       ;
+;      - unidade_and_4bits:U_AND|and2~0                           ; 0                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma14|U8_or_s        ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4|U_OR_Y~0  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~2  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~5  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~8  ; 0                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma15|U12_or_c~0     ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_OR_Y~2  ; 0                 ; 6       ;
+;      - somador_subtrator_4bits:U_Soma|full_adder:fa2|U12_or_c~0 ; 0                 ; 6       ;
+;      - somador_subtrator_4bits:U_Sub|full_adder:fa3|U8_or_s     ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4|U_OR_Y~2  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_OR_Y~0  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_OR_Y~1  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_OR_Y~4  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_OR_Y~5  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_OR_Y~6  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_AND6~2  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_AND6~4  ; 0                 ; 6       ;
+;      - divisao_5por4:U_div|d0s0~0                               ; 0                 ; 6       ;
+;      - divisao_5por4:U_div|d0s0~1                               ; 0                 ; 6       ;
+;      - divisao_5por4:U_div|d0s0~2                               ; 0                 ; 6       ;
+;      - divisao_5por4:U_div|d0s0~3                               ; 0                 ; 6       ;
+;      - divisao_5por4:U_div|d0s0~5                               ; 0                 ; 6       ;
+;      - divisao_5por4:U_div|d0s0~7                               ; 0                 ; 6       ;
+;      - divisao_5por4:U_div|d0s0~10                              ; 0                 ; 6       ;
+;      - divisao_5por4:U_div|d0s0~11                              ; 0                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma11|U11_and_c3     ; 0                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma15|U8_or_s        ; 0                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma13|U8_or_s        ; 0                 ; 6       ;
 ; SW[4]                                                           ;                   ;         ;
 ;      - mutiplicacao_5x4:U_Mult|full_adder:soma01|U11_and_c3     ; 0                 ; 6       ;
 ;      - mutiplicacao_5x4:U_Mult|full_adder:soma02|U8_or_s        ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_AND6~0  ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_AND6~3  ; 0                 ; 6       ;
-;      - divisao_5por4:U_div|U_B_IS_ZERO_NOR                      ; 0                 ; 6       ;
-;      - somador_subtrator_4bits:U_Sub|full_adder:fa1|U12_or_c~0  ; 0                 ; 6       ;
-;      - somador_subtrator_4bits:U_Soma|full_adder:fa0|U12_or_c~0 ; 0                 ; 6       ;
 ;      - mutiplicacao_5x4:U_Mult|full_adder:soma02|U12_or_c~0     ; 0                 ; 6       ;
 ;      - mutiplicacao_5x4:U_Mult|full_adder:soma03|U8_or_s        ; 0                 ; 6       ;
 ;      - mutiplicacao_5x4:U_Mult|full_adder:soma03|U12_or_c~0     ; 0                 ; 6       ;
 ;      - mutiplicacao_5x4:U_Mult|full_adder:soma04|U8_or_s        ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_OR_Y~0  ; 0                 ; 6       ;
 ;      - mutiplicacao_5x4:U_Mult|full_adder:soma04|U12_or_c~0     ; 0                 ; 6       ;
+;      - somador_subtrator_4bits:U_Sub|full_adder:fa1|U8_or_s     ; 0                 ; 6       ;
+;      - somador_subtrator_4bits:U_Soma|full_adder:fa0|U12_or_c~0 ; 0                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma01|U8_or_s        ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~0  ; 0                 ; 6       ;
 ;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~2  ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~3  ; 0                 ; 6       ;
 ;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~4  ; 0                 ; 6       ;
 ;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~6  ; 0                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma01|U8_or_s        ; 0                 ; 6       ;
-;      - somador_subtrator_4bits:U_Sub|full_adder:fa1|U8_or_s     ; 0                 ; 6       ;
-;      - unidade_xor_5x4:U_xor|u_xr~0                             ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0|U_OR_Y~2  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_OR_Y~1  ; 0                 ; 6       ;
+;      - somador_subtrator_4bits:U_Sub|full_adder:fa1|U12_or_c~0  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_AND6~2  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_AND6~3  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0|U_OR_Y~0  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0|U_OR_Y~1  ; 0                 ; 6       ;
 ;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0|U_OR_Y~3  ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~10 ; 0                 ; 6       ;
 ;      - divisao_5por4:U_div|d0s0~0                               ; 0                 ; 6       ;
 ;      - divisao_5por4:U_div|d0s0~1                               ; 0                 ; 6       ;
 ;      - divisao_5por4:U_div|d0s0~4                               ; 0                 ; 6       ;
@@ -1189,155 +1303,34 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - divisao_5por4:U_div|d0s0~10                              ; 0                 ; 6       ;
 ;      - divisao_5por4:U_div|d0s0~12                              ; 0                 ; 6       ;
 ;      - divisao_5por4:U_div|d0s0~13                              ; 0                 ; 6       ;
-; SW[2]                                                           ;                   ;         ;
-;      - soma_cin_a:U_somaCin|full_adder:U_s3|U8_or_s             ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_AND6~1  ; 0                 ; 6       ;
-;      - somador_subtrator_4bits:U_Soma|full_adder:fa2|U8_or_s~0  ; 0                 ; 6       ;
-;      - somador_subtrator_4bits:U_Soma|full_adder:fa2|U12_or_c~0 ; 0                 ; 6       ;
-;      - somador_subtrator_4bits:U_Sub|full_adder:fa2|U12_or_c~0  ; 0                 ; 6       ;
-;      - unidade_or_4bits:U_OR|OR0~0                              ; 0                 ; 6       ;
-; SW[0]                                                           ;                   ;         ;
-;      - soma_cin_a:U_somaCin|full_adder:U_s3|U8_or_s             ; 0                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|f1s2                             ; 0                 ; 6       ;
-;      - soma_cin_a:U_somaCin|full_adder:U_s1|U8_or_s~0           ; 0                 ; 6       ;
-;      - soma_cin_a:U_somaCin|full_adder:U_s2|U8_or_s             ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_AND6~1  ; 0                 ; 6       ;
-;      - somador_subtrator_4bits:U_Sub|full_adder:fa1|U12_or_c~0  ; 0                 ; 6       ;
-;      - somador_subtrator_4bits:U_Soma|full_adder:fa0|U12_or_c~0 ; 0                 ; 6       ;
-;      - somador_subtrator_4bits:U_Sub|full_adder:fa1|U8_or_s     ; 0                 ; 6       ;
-;      - unidade_xor_5x4:U_xor|u_xr~0                             ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0|U_OR_Y~2  ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0|U_OR_Y~3  ; 0                 ; 6       ;
-;      - unidade_or_4bits:U_OR|OR0~0                              ; 0                 ; 6       ;
-;      - divisao_5por4:U_div|d0s0~11                              ; 0                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma11|U11_and_c3     ; 0                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma21|U11_and_c3     ; 0                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma21|U8_or_s        ; 0                 ; 6       ;
-; SW[8]                                                           ;                   ;         ;
-;      - soma_cin_a:U_somaCin|full_adder:U_s3|U8_or_s             ; 0                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|f1s2                             ; 0                 ; 6       ;
-;      - soma_cin_a:U_somaCin|full_adder:U_s1|U8_or_s~0           ; 0                 ; 6       ;
-;      - soma_cin_a:U_somaCin|full_adder:U_s2|U8_or_s             ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_AND6~1  ; 0                 ; 6       ;
-;      - somador_subtrator_4bits:U_Soma|full_adder:fa0|U12_or_c~0 ; 0                 ; 6       ;
-;      - unidade_xor_5x4:U_xor|u_xr~0                             ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0|U_OR_Y~3  ; 0                 ; 6       ;
-;      - unidade_or_4bits:U_OR|OR0~0                              ; 0                 ; 6       ;
-;      - divisao_5por4:U_div|d0s0~11                              ; 0                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma11|U11_and_c3     ; 0                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma21|U11_and_c3     ; 0                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma21|U8_or_s        ; 0                 ; 6       ;
-; SW[1]                                                           ;                   ;         ;
-;      - soma_cin_a:U_somaCin|full_adder:U_s3|U8_or_s             ; 0                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|f1s2                             ; 0                 ; 6       ;
-;      - soma_cin_a:U_somaCin|full_adder:U_s2|U8_or_s             ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_AND6~1  ; 0                 ; 6       ;
-;      - somador_subtrator_4bits:U_Sub|full_adder:fa1|U12_or_c~0  ; 0                 ; 6       ;
-;      - somador_subtrator_4bits:U_Soma|full_adder:fa1|U12_or_c~0 ; 0                 ; 6       ;
-;      - somador_subtrator_4bits:U_Soma|full_adder:fa1|U8_or_s~0  ; 0                 ; 6       ;
-;      - somador_subtrator_4bits:U_Sub|full_adder:fa1|U8_or_s     ; 0                 ; 6       ;
-;      - unidade_or_4bits:U_OR|OR0~0                              ; 0                 ; 6       ;
 ; SW[5]                                                           ;                   ;         ;
-;      - mutiplicacao_5x4:U_Mult|f1s2                             ; 1                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma01|U11_and_c3     ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_AND6~0  ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_AND6~3  ; 1                 ; 6       ;
-;      - divisao_5por4:U_div|U_B_IS_ZERO_NOR                      ; 1                 ; 6       ;
-;      - somador_subtrator_4bits:U_Sub|full_adder:fa1|U12_or_c~0  ; 1                 ; 6       ;
-;      - somador_subtrator_4bits:U_Soma|full_adder:fa1|U12_or_c~0 ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4|U_AND6~0  ; 1                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|f1s3                             ; 1                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|f1s4~0                           ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_OR_Y~0  ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~2  ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~3  ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~4  ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~6  ; 1                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma01|U8_or_s        ; 1                 ; 6       ;
-;      - somador_subtrator_4bits:U_Soma|full_adder:fa1|U8_or_s~0  ; 1                 ; 6       ;
-;      - somador_subtrator_4bits:U_Sub|full_adder:fa1|U8_or_s     ; 1                 ; 6       ;
-;      - unidade_xor_5x4:U_xor|u_xr~1                             ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~10 ; 1                 ; 6       ;
-;      - divisao_5por4:U_div|d0s0~0                               ; 1                 ; 6       ;
-;      - divisao_5por4:U_div|d0s0~2                               ; 1                 ; 6       ;
-;      - divisao_5por4:U_div|d0s0~4                               ; 1                 ; 6       ;
-;      - divisao_5por4:U_div|d0s0~7                               ; 1                 ; 6       ;
-;      - divisao_5por4:U_div|d0s0~9                               ; 1                 ; 6       ;
-;      - divisao_5por4:U_div|d0s0~11                              ; 1                 ; 6       ;
-;      - divisao_5por4:U_div|d0s0~14                              ; 1                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma05|U8_or_s        ; 1                 ; 6       ;
-; SW[6]                                                           ;                   ;         ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_OR_Y~0  ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_AND6~0  ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_AND6~4  ; 1                 ; 6       ;
-;      - divisao_5por4:U_div|U_B_IS_ZERO_NOR                      ; 1                 ; 6       ;
-;      - somador_subtrator_4bits:U_Soma|full_adder:fa2|U8_or_s~0  ; 1                 ; 6       ;
-;      - somador_subtrator_4bits:U_Soma|full_adder:fa2|U12_or_c~0 ; 1                 ; 6       ;
-;      - somador_subtrator_4bits:U_Sub|full_adder:fa2|U12_or_c~0  ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4|U_AND6~0  ; 1                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma12|U8_or_s        ; 1                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma12|U12_or_c~0     ; 1                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma13|U8_or_s        ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_OR_Y~1  ; 1                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma13|U12_or_c~0     ; 1                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma14|U8_or_s        ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~2  ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~5  ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~8  ; 1                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma14|U12_or_c~0     ; 1                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma15|U12_or_c~0     ; 1                 ; 6       ;
-;      - unidade_xor_5x4:U_xor|u_xr~2                             ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~10 ; 1                 ; 6       ;
-;      - divisao_5por4:U_div|d0s0~0                               ; 1                 ; 6       ;
-;      - divisao_5por4:U_div|d0s0~1                               ; 1                 ; 6       ;
-;      - divisao_5por4:U_div|d0s0~2                               ; 1                 ; 6       ;
-;      - divisao_5por4:U_div|d0s0~3                               ; 1                 ; 6       ;
-;      - divisao_5por4:U_div|d0s0~5                               ; 1                 ; 6       ;
-;      - divisao_5por4:U_div|d0s0~7                               ; 1                 ; 6       ;
-;      - divisao_5por4:U_div|d0s0~10                              ; 1                 ; 6       ;
-;      - divisao_5por4:U_div|d0s0~11                              ; 1                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma11|U11_and_c3     ; 1                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma15|U8_or_s        ; 1                 ; 6       ;
-; SW[3]                                                           ;                   ;         ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_AND6~2  ; 1                 ; 6       ;
-;      - soma_cin_a:U_somaCin|full_adder:U_s4|U8_or_s             ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4|U_AND0~0  ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4|U_OR_Y~0  ; 1                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|f1s4~0                           ; 1                 ; 6       ;
-;      - somador_subtrator_4bits:U_Soma|full_adder:fa3|U8_or_s~0  ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_OR_Y~0  ; 1                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~7  ; 1                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma15|U12_or_c~0     ; 1                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|f0s7                             ; 1                 ; 6       ;
-;      - unidade_xor_5x4:U_xor|u_xr~2                             ; 1                 ; 6       ;
-;      - unidade_or_4bits:U_OR|OR0~1                              ; 1                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma05|U8_or_s        ; 1                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma15|U8_or_s        ; 1                 ; 6       ;
-; SW[7]                                                           ;                   ;         ;
-;      - divisao_5por4:U_div|U_B_IS_ZERO_NOR                      ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_OR_Y~1  ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4|U_AND0~0  ; 0                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|f1s2                             ; 0                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma01|U11_and_c3     ; 0                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|f1s3                             ; 0                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|f1s4~0                           ; 0                 ; 6       ;
+;      - somador_subtrator_4bits:U_Sub|full_adder:fa1|U8_or_s     ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_OR_Y~0  ; 0                 ; 6       ;
+;      - somador_subtrator_4bits:U_Soma|full_adder:fa1|U8_or_s~0  ; 0                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma01|U8_or_s        ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_OR_Y~3  ; 0                 ; 6       ;
 ;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4|U_OR_Y~0  ; 0                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma22|U8_or_s        ; 0                 ; 6       ;
-;      - somador_subtrator_4bits:U_Soma|full_adder:fa3|U8_or_s~0  ; 0                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma22|U12_or_c~0     ; 0                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma23|U8_or_s        ; 0                 ; 6       ;
 ;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~2  ; 0                 ; 6       ;
-;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~9  ; 0                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma23|U12_or_c~0     ; 0                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma24|U12_or_c~0     ; 0                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma25|U8_or_s        ; 0                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma24|U8_or_s        ; 0                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|f0s7                             ; 0                 ; 6       ;
-;      - unidade_xor_5x4:U_xor|u_xr~0                             ; 0                 ; 6       ;
-;      - unidade_or_4bits:U_OR|OR0~1                              ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~3  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~4  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1|U_AND6~6  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_OR_Y~1  ; 0                 ; 6       ;
+;      - somador_subtrator_4bits:U_Soma|full_adder:fa1|U12_or_c~0 ; 0                 ; 6       ;
+;      - somador_subtrator_4bits:U_Sub|full_adder:fa1|U12_or_c~0  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_AND6~2  ; 0                 ; 6       ;
+;      - mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2|U_AND6~3  ; 0                 ; 6       ;
 ;      - divisao_5por4:U_div|d0s0~0                               ; 0                 ; 6       ;
-;      - divisao_5por4:U_div|d0s0~3                               ; 0                 ; 6       ;
-;      - divisao_5por4:U_div|d0s0~5                               ; 0                 ; 6       ;
-;      - divisao_5por4:U_div|d0s0~6                               ; 0                 ; 6       ;
-;      - divisao_5por4:U_div|d0s0~15                              ; 0                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma21|U11_and_c3     ; 0                 ; 6       ;
-;      - mutiplicacao_5x4:U_Mult|full_adder:soma21|U8_or_s        ; 0                 ; 6       ;
+;      - divisao_5por4:U_div|d0s0~2                               ; 0                 ; 6       ;
+;      - divisao_5por4:U_div|d0s0~4                               ; 0                 ; 6       ;
+;      - divisao_5por4:U_div|d0s0~7                               ; 0                 ; 6       ;
+;      - divisao_5por4:U_div|d0s0~9                               ; 0                 ; 6       ;
+;      - divisao_5por4:U_div|d0s0~11                              ; 0                 ; 6       ;
+;      - divisao_5por4:U_div|d0s0~14                              ; 0                 ; 6       ;
+;      - mutiplicacao_5x4:U_Mult|full_adder:soma05|U8_or_s        ; 0                 ; 6       ;
 +-----------------------------------------------------------------+-------------------+---------+
 
 
@@ -1346,87 +1339,87 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-------------------------+
 ; Routing Resource Type ; Usage                   ;
 +-----------------------+-------------------------+
-; Block interconnects   ; 363 / 148,641 ( < 1 % ) ;
-; C16 interconnects     ; 13 / 5,382 ( < 1 % )    ;
-; C4 interconnects      ; 169 / 106,704 ( < 1 % ) ;
-; Direct links          ; 53 / 148,641 ( < 1 % )  ;
+; Block interconnects   ; 369 / 148,641 ( < 1 % ) ;
+; C16 interconnects     ; 10 / 5,382 ( < 1 % )    ;
+; C4 interconnects      ; 170 / 106,704 ( < 1 % ) ;
+; Direct links          ; 54 / 148,641 ( < 1 % )  ;
 ; Global clocks         ; 0 / 20 ( 0 % )          ;
-; Local interconnects   ; 148 / 49,760 ( < 1 % )  ;
+; Local interconnects   ; 149 / 49,760 ( < 1 % )  ;
 ; NSLEEPs               ; 0 / 500 ( 0 % )         ;
-; R24 interconnects     ; 10 / 5,406 ( < 1 % )    ;
-; R4 interconnects      ; 188 / 147,764 ( < 1 % ) ;
+; R24 interconnects     ; 12 / 5,406 ( < 1 % )    ;
+; R4 interconnects      ; 194 / 147,764 ( < 1 % ) ;
 +-----------------------+-------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Logic Elements                                                         ;
 +---------------------------------------------+------------------------------+
-; Number of Logic Elements  (Average = 13.38) ; Number of LABs  (Total = 21) ;
+; Number of Logic Elements  (Average = 12.35) ; Number of LABs  (Total = 23) ;
 +---------------------------------------------+------------------------------+
-; 1                                           ; 2                            ;
-; 2                                           ; 1                            ;
+; 1                                           ; 4                            ;
+; 2                                           ; 0                            ;
 ; 3                                           ; 0                            ;
 ; 4                                           ; 0                            ;
-; 5                                           ; 0                            ;
+; 5                                           ; 1                            ;
 ; 6                                           ; 0                            ;
 ; 7                                           ; 0                            ;
 ; 8                                           ; 0                            ;
 ; 9                                           ; 0                            ;
 ; 10                                          ; 0                            ;
 ; 11                                          ; 1                            ;
-; 12                                          ; 0                            ;
-; 13                                          ; 1                            ;
+; 12                                          ; 1                            ;
+; 13                                          ; 0                            ;
 ; 14                                          ; 1                            ;
-; 15                                          ; 1                            ;
-; 16                                          ; 14                           ;
+; 15                                          ; 2                            ;
+; 16                                          ; 13                           ;
 +---------------------------------------------+------------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Signals Sourced  (Average = 13.38) ; Number of LABs  (Total = 21) ;
+; Number of Signals Sourced  (Average = 12.35) ; Number of LABs  (Total = 23) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
-; 1                                            ; 2                            ;
-; 2                                            ; 1                            ;
+; 1                                            ; 4                            ;
+; 2                                            ; 0                            ;
 ; 3                                            ; 0                            ;
 ; 4                                            ; 0                            ;
-; 5                                            ; 0                            ;
+; 5                                            ; 1                            ;
 ; 6                                            ; 0                            ;
 ; 7                                            ; 0                            ;
 ; 8                                            ; 0                            ;
 ; 9                                            ; 0                            ;
 ; 10                                           ; 0                            ;
 ; 11                                           ; 1                            ;
-; 12                                           ; 0                            ;
-; 13                                           ; 1                            ;
+; 12                                           ; 1                            ;
+; 13                                           ; 0                            ;
 ; 14                                           ; 1                            ;
-; 15                                           ; 1                            ;
-; 16                                           ; 14                           ;
+; 15                                           ; 2                            ;
+; 16                                           ; 13                           ;
 +----------------------------------------------+------------------------------+
 
 
 +--------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                        ;
 +-------------------------------------------------+------------------------------+
-; Number of Signals Sourced Out  (Average = 7.29) ; Number of LABs  (Total = 21) ;
+; Number of Signals Sourced Out  (Average = 6.91) ; Number of LABs  (Total = 23) ;
 +-------------------------------------------------+------------------------------+
 ; 0                                               ; 0                            ;
-; 1                                               ; 2                            ;
+; 1                                               ; 4                            ;
 ; 2                                               ; 1                            ;
-; 3                                               ; 0                            ;
-; 4                                               ; 0                            ;
-; 5                                               ; 4                            ;
+; 3                                               ; 1                            ;
+; 4                                               ; 1                            ;
+; 5                                               ; 2                            ;
 ; 6                                               ; 0                            ;
-; 7                                               ; 5                            ;
+; 7                                               ; 1                            ;
 ; 8                                               ; 3                            ;
-; 9                                               ; 1                            ;
-; 10                                              ; 2                            ;
+; 9                                               ; 4                            ;
+; 10                                              ; 3                            ;
 ; 11                                              ; 1                            ;
-; 12                                              ; 0                            ;
+; 12                                              ; 1                            ;
 ; 13                                              ; 0                            ;
-; 14                                              ; 1                            ;
+; 14                                              ; 0                            ;
 ; 15                                              ; 0                            ;
 ; 16                                              ; 1                            ;
 +-------------------------------------------------+------------------------------+
@@ -1435,35 +1428,32 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Distinct Inputs  (Average = 14.62) ; Number of LABs  (Total = 21) ;
+; Number of Distinct Inputs  (Average = 13.39) ; Number of LABs  (Total = 23) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
 ; 1                                            ; 0                            ;
-; 2                                            ; 1                            ;
-; 3                                            ; 0                            ;
+; 2                                            ; 0                            ;
+; 3                                            ; 2                            ;
 ; 4                                            ; 1                            ;
 ; 5                                            ; 0                            ;
 ; 6                                            ; 0                            ;
 ; 7                                            ; 0                            ;
-; 8                                            ; 0                            ;
+; 8                                            ; 1                            ;
 ; 9                                            ; 0                            ;
-; 10                                           ; 0                            ;
-; 11                                           ; 0                            ;
-; 12                                           ; 2                            ;
+; 10                                           ; 1                            ;
+; 11                                           ; 1                            ;
+; 12                                           ; 3                            ;
 ; 13                                           ; 1                            ;
-; 14                                           ; 5                            ;
-; 15                                           ; 1                            ;
-; 16                                           ; 1                            ;
-; 17                                           ; 1                            ;
-; 18                                           ; 0                            ;
-; 19                                           ; 2                            ;
-; 20                                           ; 2                            ;
-; 21                                           ; 2                            ;
-; 22                                           ; 0                            ;
-; 23                                           ; 0                            ;
-; 24                                           ; 0                            ;
-; 25                                           ; 0                            ;
-; 26                                           ; 1                            ;
+; 14                                           ; 2                            ;
+; 15                                           ; 0                            ;
+; 16                                           ; 3                            ;
+; 17                                           ; 0                            ;
+; 18                                           ; 2                            ;
+; 19                                           ; 0                            ;
+; 20                                           ; 1                            ;
+; 21                                           ; 1                            ;
+; 22                                           ; 2                            ;
+; 23                                           ; 1                            ;
 +----------------------------------------------+------------------------------+
 
 
@@ -1524,9 +1514,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+--------------+-----------+-----------+--------------+--------------+-----------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+-----------+-----------+-----------+--------------+--------------+
 ; Pin/Rules          ; IO_000002    ; IO_000001 ; IO_000003 ; IO_000004    ; IO_000005    ; IO_000006 ; IO_000007 ; IO_000008    ; IO_000047    ; IO_000046    ; IO_000045    ; IO_000027    ; IO_000026    ; IO_000024    ; IO_000023    ; IO_000022    ; IO_000021    ; IO_000020    ; IO_000019    ; IO_000018    ; IO_000015    ; IO_000014    ; IO_000013    ; IO_000012    ; IO_000011    ; IO_000010 ; IO_000009 ; IO_000033 ; IO_000034    ; IO_000042    ;
 +--------------------+--------------+-----------+-----------+--------------+--------------+-----------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+-----------+-----------+-----------+--------------+--------------+
-; Total Pass         ; 0            ; 43        ; 43        ; 0            ; 0            ; 43        ; 43        ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 31           ; 0            ; 0            ; 0            ; 12           ; 31           ; 0            ; 12           ; 0            ; 0            ; 31           ; 0            ; 43        ; 43        ; 43        ; 0            ; 0            ;
+; Total Pass         ; 0            ; 44        ; 44        ; 0            ; 0            ; 44        ; 44        ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 32           ; 0            ; 0            ; 0            ; 12           ; 32           ; 0            ; 12           ; 0            ; 0            ; 32           ; 0            ; 44        ; 44        ; 44        ; 0            ; 0            ;
 ; Total Unchecked    ; 0            ; 0         ; 0         ; 0            ; 0            ; 0         ; 0         ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0         ; 0         ; 0            ; 0            ;
-; Total Inapplicable ; 43           ; 0         ; 0         ; 43           ; 43           ; 0         ; 0         ; 43           ; 43           ; 43           ; 43           ; 43           ; 43           ; 12           ; 43           ; 43           ; 43           ; 31           ; 12           ; 43           ; 31           ; 43           ; 43           ; 12           ; 43           ; 0         ; 0         ; 0         ; 43           ; 43           ;
+; Total Inapplicable ; 44           ; 0         ; 0         ; 44           ; 44           ; 0         ; 0         ; 44           ; 44           ; 44           ; 44           ; 44           ; 44           ; 12           ; 44           ; 44           ; 44           ; 32           ; 12           ; 44           ; 32           ; 44           ; 44           ; 12           ; 44           ; 0         ; 0         ; 0         ; 44           ; 44           ;
 ; Total Fail         ; 0            ; 0         ; 0         ; 0            ; 0            ; 0         ; 0         ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0         ; 0         ; 0            ; 0            ;
 ; HEX0[0]            ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
 ; HEX0[1]            ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
@@ -1559,18 +1549,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; LEDR9              ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
 ; LEDR8              ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
 ; LEDR7              ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
+; LEDR6              ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
+; KEY[0]             ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
 ; SW[9]              ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
 ; KEY[1]             ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
-; KEY[0]             ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
-; SW[4]              ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
-; SW[2]              ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
+; SW[7]              ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
+; SW[3]              ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
 ; SW[0]              ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
 ; SW[8]              ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
+; SW[2]              ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
 ; SW[1]              ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
-; SW[5]              ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
 ; SW[6]              ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
-; SW[3]              ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
-; SW[7]              ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
+; SW[4]              ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
+; SW[5]              ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
 +--------------------+--------------+-----------+-----------+--------------+--------------+-----------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+-----------+-----------+-----------+--------------+--------------+
 
 
@@ -1615,7 +1606,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Fitter Messages ;
 +-----------------+
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
 Info (119006): Selected device 10M50DCF484C7G for design "PBL1"
 Info (22896): The CONFIG_SEL pin is disabled. It is not supported for MAX 10 devices with compact features.
 Info (21077): Low junction temperature is 0 degrees C
@@ -1665,7 +1656,7 @@ Info (170137): Fitter placement was successful
 Info (170192): Fitter placement operations ending: elapsed time is 00:00:00
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 2% of the available device resources in the region that extends from location X56_Y44 to location X66_Y54
+    Info (170196): Router estimated peak interconnect usage is 3% of the available device resources in the region that extends from location X56_Y44 to location X66_Y54
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
@@ -1675,13 +1666,13 @@ Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
 Info (144001): Generated suppressed messages file /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/output_files/PBL1.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 1887 megabytes
-    Info: Processing ended: Fri Sep 19 09:13:05 2025
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:07
+    Info: Peak virtual memory: 1664 megabytes
+    Info: Processing ended: Fri Sep 19 11:25:58 2025
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:08
 
 
 +----------------------------+

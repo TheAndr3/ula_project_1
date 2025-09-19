@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PBL1
-Fri Sep 19 09:13:00 2025
+Fri Sep 19 11:25:52 2025
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -21,6 +21,7 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
  13. Post-Synthesis Netlist Statistics for Top Partition
  14. Elapsed Time Per Partition
  15. Analysis & Synthesis Messages
+ 16. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -47,16 +48,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Sep 19 09:13:00 2025          ;
+; Analysis & Synthesis Status        ; Successful - Fri Sep 19 11:25:52 2025          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; PBL1                                           ;
 ; Top-level Entity Name              ; ULA_TOP                                        ;
 ; Family                             ; MAX 10                                         ;
-; Total logic elements               ; 280                                            ;
-;     Total combinational functions  ; 280                                            ;
+; Total logic elements               ; 283                                            ;
+;     Total combinational functions  ; 283                                            ;
 ;     Dedicated logic registers      ; 0                                              ;
 ; Total registers                    ; 0                                              ;
-; Total pins                         ; 43                                             ;
+; Total pins                         ; 44                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
@@ -157,8 +158,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 20          ;
-; Maximum allowed            ; 14          ;
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 1           ;
@@ -190,6 +191,7 @@ https://fpgasoftware.intel.com/eula.
 ; output_files/bin_to_bcd_8bit_v2.v ; yes             ; User Verilog HDL File  ; /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/output_files/bin_to_bcd_8bit_v2.v ;         ;
 ; flag_cout.v                       ; yes             ; User Verilog HDL File  ; /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/flag_cout.v                       ;         ;
 ; operacao_7seg.v                   ; yes             ; User Verilog HDL File  ; /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/operacao_7seg.v                   ;         ;
+; output_files/flag_ov.v            ; yes             ; User Verilog HDL File  ; /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/output_files/flag_ov.v            ;         ;
 +-----------------------------------+-----------------+------------------------+-----------------------------------------------------------------------------------------------+---------+
 
 
@@ -198,30 +200,30 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+---------------------------------------------------------+
 ; Resource                                    ; Usage                                                   ;
 +---------------------------------------------+---------------------------------------------------------+
-; Estimated Total logic elements              ; 280                                                     ;
+; Estimated Total logic elements              ; 283                                                     ;
 ;                                             ;                                                         ;
-; Total combinational functions               ; 280                                                     ;
+; Total combinational functions               ; 283                                                     ;
 ; Logic element usage by number of LUT inputs ;                                                         ;
-;     -- 4 input functions                    ; 208                                                     ;
-;     -- 3 input functions                    ; 47                                                      ;
-;     -- <=2 input functions                  ; 25                                                      ;
+;     -- 4 input functions                    ; 215                                                     ;
+;     -- 3 input functions                    ; 50                                                      ;
+;     -- <=2 input functions                  ; 18                                                      ;
 ;                                             ;                                                         ;
 ; Logic elements by mode                      ;                                                         ;
-;     -- normal mode                          ; 280                                                     ;
+;     -- normal mode                          ; 283                                                     ;
 ;     -- arithmetic mode                      ; 0                                                       ;
 ;                                             ;                                                         ;
 ; Total registers                             ; 0                                                       ;
 ;     -- Dedicated logic registers            ; 0                                                       ;
 ;     -- I/O registers                        ; 0                                                       ;
 ;                                             ;                                                         ;
-; I/O pins                                    ; 43                                                      ;
+; I/O pins                                    ; 44                                                      ;
 ;                                             ;                                                         ;
 ; Embedded Multiplier 9-bit elements          ; 0                                                       ;
 ;                                             ;                                                         ;
-; Maximum fan-out node                        ; mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3|U_OR_Y~4 ;
-; Maximum fan-out                             ; 47                                                      ;
-; Total fan-out                               ; 1095                                                    ;
-; Average fan-out                             ; 2.99                                                    ;
+; Maximum fan-out node                        ; mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT7|U_AND4~0 ;
+; Maximum fan-out                             ; 43                                                      ;
+; Total fan-out                               ; 1119                                                    ;
+; Average fan-out                             ; 3.02                                                    ;
 +---------------------------------------------+---------------------------------------------------------+
 
 
@@ -230,15 +232,15 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------+-------------------------+--------------+
 ; Compilation Hierarchy Node          ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                     ; Entity Name             ; Library Name ;
 +-------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------+-------------------------+--------------+
-; |ULA_TOP                            ; 280 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 43   ; 0            ; 0          ; |ULA_TOP                                                ; ULA_TOP                 ; work         ;
-;    |bin_to_bcd_8bit_v2:comb_24|     ; 134 (134)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|bin_to_bcd_8bit_v2:comb_24                     ; bin_to_bcd_8bit_v2      ; work         ;
-;    |decodificador_7seg:comb_25|     ; 9 (9)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|decodificador_7seg:comb_25                     ; decodificador_7seg      ; work         ;
+; |ULA_TOP                            ; 283 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 44   ; 0            ; 0          ; |ULA_TOP                                                ; ULA_TOP                 ; work         ;
+;    |bin_to_bcd_8bit_v2:comb_24|     ; 128 (128)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|bin_to_bcd_8bit_v2:comb_24                     ; bin_to_bcd_8bit_v2      ; work         ;
+;    |decodificador_7seg:comb_25|     ; 12 (12)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|decodificador_7seg:comb_25                     ; decodificador_7seg      ; work         ;
 ;    |decodificador_7seg:comb_26|     ; 9 (9)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|decodificador_7seg:comb_26                     ; decodificador_7seg      ; work         ;
 ;    |decodificador_7seg:comb_27|     ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|decodificador_7seg:comb_27                     ; decodificador_7seg      ; work         ;
-;    |divisao_5por4:U_div|            ; 18 (18)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|divisao_5por4:U_div                            ; divisao_5por4           ; work         ;
-;    |flag_error:comb_30|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|flag_error:comb_30                             ; flag_error              ; work         ;
-;    |flag_zero:comb_29|              ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|flag_zero:comb_29                              ; flag_zero               ; work         ;
-;    |mutiplicacao_5x4:U_Mult|        ; 31 (4)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult                        ; mutiplicacao_5x4        ; work         ;
+;    |divisao_5por4:U_div|            ; 17 (17)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|divisao_5por4:U_div                            ; divisao_5por4           ; work         ;
+;    |flag_error:comb_30|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|flag_error:comb_30                             ; flag_error              ; work         ;
+;    |flag_zero:comb_29|              ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|flag_zero:comb_29                              ; flag_zero               ; work         ;
+;    |mutiplicacao_5x4:U_Mult|        ; 30 (4)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult                        ; mutiplicacao_5x4        ; work         ;
 ;       |full_adder:soma01|           ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult|full_adder:soma01      ; full_adder              ; work         ;
 ;       |full_adder:soma02|           ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult|full_adder:soma02      ; full_adder              ; work         ;
 ;       |full_adder:soma03|           ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult|full_adder:soma03      ; full_adder              ; work         ;
@@ -249,36 +251,35 @@ https://fpgasoftware.intel.com/eula.
 ;       |full_adder:soma13|           ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult|full_adder:soma13      ; full_adder              ; work         ;
 ;       |full_adder:soma14|           ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult|full_adder:soma14      ; full_adder              ; work         ;
 ;       |full_adder:soma15|           ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult|full_adder:soma15      ; full_adder              ; work         ;
-;       |full_adder:soma21|           ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult|full_adder:soma21      ; full_adder              ; work         ;
+;       |full_adder:soma21|           ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult|full_adder:soma21      ; full_adder              ; work         ;
 ;       |full_adder:soma22|           ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult|full_adder:soma22      ; full_adder              ; work         ;
 ;       |full_adder:soma23|           ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult|full_adder:soma23      ; full_adder              ; work         ;
 ;       |full_adder:soma24|           ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult|full_adder:soma24      ; full_adder              ; work         ;
 ;       |full_adder:soma25|           ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mutiplicacao_5x4:U_Mult|full_adder:soma25      ; full_adder              ; work         ;
-;    |mux_8_para_1_8bits:U_MUX|       ; 47 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX                       ; mux_8_para_1_8bits      ; work         ;
+;    |mux_8_para_1_8bits:U_MUX|       ; 62 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX                       ; mux_8_para_1_8bits      ; work         ;
 ;       |mux_8_para_1:MUX_BIT0|       ; 6 (6)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0 ; mux_8_para_1            ; work         ;
-;       |mux_8_para_1:MUX_BIT1|       ; 13 (13)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1 ; mux_8_para_1            ; work         ;
-;       |mux_8_para_1:MUX_BIT2|       ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2 ; mux_8_para_1            ; work         ;
-;       |mux_8_para_1:MUX_BIT3|       ; 8 (8)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3 ; mux_8_para_1            ; work         ;
-;       |mux_8_para_1:MUX_BIT4|       ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4 ; mux_8_para_1            ; work         ;
+;       |mux_8_para_1:MUX_BIT1|       ; 16 (16)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT1 ; mux_8_para_1            ; work         ;
+;       |mux_8_para_1:MUX_BIT2|       ; 15 (15)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT2 ; mux_8_para_1            ; work         ;
+;       |mux_8_para_1:MUX_BIT3|       ; 12 (12)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT3 ; mux_8_para_1            ; work         ;
+;       |mux_8_para_1:MUX_BIT4|       ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT4 ; mux_8_para_1            ; work         ;
 ;       |mux_8_para_1:MUX_BIT5|       ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT5 ; mux_8_para_1            ; work         ;
-;       |mux_8_para_1:MUX_BIT6|       ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT6 ; mux_8_para_1            ; work         ;
-;       |mux_8_para_1:MUX_BIT7|       ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT7 ; mux_8_para_1            ; work         ;
+;       |mux_8_para_1:MUX_BIT6|       ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT6 ; mux_8_para_1            ; work         ;
+;       |mux_8_para_1:MUX_BIT7|       ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT7 ; mux_8_para_1            ; work         ;
 ;    |operacao_7seg:comb_28|          ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|operacao_7seg:comb_28                          ; operacao_7seg           ; work         ;
 ;    |soma_cin_a:U_somaCin|           ; 4 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|soma_cin_a:U_somaCin                           ; soma_cin_a              ; work         ;
 ;       |full_adder:U_s1|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|soma_cin_a:U_somaCin|full_adder:U_s1           ; full_adder              ; work         ;
 ;       |full_adder:U_s2|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|soma_cin_a:U_somaCin|full_adder:U_s2           ; full_adder              ; work         ;
 ;       |full_adder:U_s3|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|soma_cin_a:U_somaCin|full_adder:U_s3           ; full_adder              ; work         ;
 ;       |full_adder:U_s4|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|soma_cin_a:U_somaCin|full_adder:U_s4           ; full_adder              ; work         ;
-;    |somador_subtrator_4bits:U_Soma| ; 6 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|somador_subtrator_4bits:U_Soma                 ; somador_subtrator_4bits ; work         ;
+;    |somador_subtrator_4bits:U_Soma| ; 5 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|somador_subtrator_4bits:U_Soma                 ; somador_subtrator_4bits ; work         ;
 ;       |full_adder:fa0|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|somador_subtrator_4bits:U_Soma|full_adder:fa0  ; full_adder              ; work         ;
 ;       |full_adder:fa1|              ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|somador_subtrator_4bits:U_Soma|full_adder:fa1  ; full_adder              ; work         ;
-;       |full_adder:fa2|              ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|somador_subtrator_4bits:U_Soma|full_adder:fa2  ; full_adder              ; work         ;
+;       |full_adder:fa2|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|somador_subtrator_4bits:U_Soma|full_adder:fa2  ; full_adder              ; work         ;
 ;       |full_adder:fa3|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|somador_subtrator_4bits:U_Soma|full_adder:fa3  ; full_adder              ; work         ;
 ;    |somador_subtrator_4bits:U_Sub|  ; 3 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|somador_subtrator_4bits:U_Sub                  ; somador_subtrator_4bits ; work         ;
 ;       |full_adder:fa1|              ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|somador_subtrator_4bits:U_Sub|full_adder:fa1   ; full_adder              ; work         ;
-;       |full_adder:fa2|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|somador_subtrator_4bits:U_Sub|full_adder:fa2   ; full_adder              ; work         ;
-;    |unidade_or_4bits:U_OR|          ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|unidade_or_4bits:U_OR                          ; unidade_or_4bits        ; work         ;
-;    |unidade_xor_5x4:U_xor|          ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|unidade_xor_5x4:U_xor                          ; unidade_xor_5x4         ; work         ;
+;       |full_adder:fa3|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|somador_subtrator_4bits:U_Sub|full_adder:fa3   ; full_adder              ; work         ;
+;    |unidade_and_4bits:U_AND|        ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |ULA_TOP|unidade_and_4bits:U_AND                        ; unidade_and_4bits       ; work         ;
 +-------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------+-------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -341,17 +342,17 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 43                          ;
-; cycloneiii_lcell_comb ; 283                         ;
-;     normal            ; 283                         ;
+; boundary_port         ; 44                          ;
+; cycloneiii_lcell_comb ; 286                         ;
+;     normal            ; 286                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 2                           ;
-;         2 data inputs ; 25                          ;
-;         3 data inputs ; 47                          ;
-;         4 data inputs ; 208                         ;
+;         2 data inputs ; 18                          ;
+;         3 data inputs ; 50                          ;
+;         4 data inputs ; 215                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 18.00                       ;
-; Average LUT depth     ; 15.09                       ;
+; Max LUT depth         ; 17.00                       ;
+; Average LUT depth     ; 14.23                       ;
 +-----------------------+-----------------------------+
 
 
@@ -370,10 +371,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Fri Sep 19 09:12:54 2025
+    Info: Processing started: Fri Sep 19 11:25:45 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PBL1 -c PBL1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file ULA_TOP.v
     Info (12023): Found entity 1: ULA_TOP File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/ULA_TOP.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file decodificador_7seg.v
@@ -410,6 +411,10 @@ Info (12021): Found 1 design units, including 1 entities, in source file flag_co
     Info (12023): Found entity 1: flag_cout File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/flag_cout.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file operacao_7seg.v
     Info (12023): Found entity 1: operacao_7seg File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/operacao_7seg.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file output_files/flag_ov.v
+    Info (12023): Found entity 1: flag_ov File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/output_files/flag_ov.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file subtrator_5x4bits.v
+    Info (12023): Found entity 1: subtrator_5x4bits File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/subtrator_5x4bits.v Line: 1
 Critical Warning (10846): Verilog HDL Instantiation warning at ULA_TOP.v(118): instance has no name File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/ULA_TOP.v Line: 118
 Critical Warning (10846): Verilog HDL Instantiation warning at ULA_TOP.v(120): instance has no name File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/ULA_TOP.v Line: 120
 Critical Warning (10846): Verilog HDL Instantiation warning at ULA_TOP.v(121): instance has no name File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/ULA_TOP.v Line: 121
@@ -418,6 +423,7 @@ Critical Warning (10846): Verilog HDL Instantiation warning at ULA_TOP.v(124): i
 Critical Warning (10846): Verilog HDL Instantiation warning at ULA_TOP.v(126): instance has no name File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/ULA_TOP.v Line: 126
 Critical Warning (10846): Verilog HDL Instantiation warning at ULA_TOP.v(128): instance has no name File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/ULA_TOP.v Line: 128
 Critical Warning (10846): Verilog HDL Instantiation warning at ULA_TOP.v(130): instance has no name File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/ULA_TOP.v Line: 130
+Critical Warning (10846): Verilog HDL Instantiation warning at ULA_TOP.v(132): instance has no name File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/ULA_TOP.v Line: 132
 Info (12127): Elaborating entity "ULA_TOP" for the top level hierarchy
 Info (12128): Elaborating entity "soma_cin_a" for hierarchy "soma_cin_a:U_somaCin" File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/ULA_TOP.v Line: 58
 Info (12128): Elaborating entity "full_adder" for hierarchy "soma_cin_a:U_somaCin|full_adder:U_s1" File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/soma_cin_a.v Line: 11
@@ -431,28 +437,37 @@ Info (12128): Elaborating entity "unidade_xor_5x4" for hierarchy "unidade_xor_5x
 Info (12128): Elaborating entity "divisao_5por4" for hierarchy "divisao_5por4:U_div" File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/ULA_TOP.v Line: 96
 Warning (10036): Verilog HDL or VHDL warning at divisao_5por4.v(10): object "gnd" assigned a value but never read File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/divisao_5por4.v Line: 10
 Info (12128): Elaborating entity "mux_8_para_1_8bits" for hierarchy "mux_8_para_1_8bits:U_MUX" File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/ULA_TOP.v Line: 110
-Info (12128): Elaborating entity "mux_8_para_1" for hierarchy "mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0" File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/mux_8_para_1_8bits.v Line: 17
+Info (12128): Elaborating entity "mux_8_para_1" for hierarchy "mux_8_para_1_8bits:U_MUX|mux_8_para_1:MUX_BIT0" File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/mux_8_para_1_8bits.v Line: 16
 Info (12128): Elaborating entity "bin_to_bcd_8bit_v2" for hierarchy "bin_to_bcd_8bit_v2:comb_24" File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/ULA_TOP.v Line: 118
 Info (12128): Elaborating entity "decodificador_7seg" for hierarchy "decodificador_7seg:comb_25" File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/ULA_TOP.v Line: 120
 Info (12128): Elaborating entity "operacao_7seg" for hierarchy "operacao_7seg:comb_28" File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/ULA_TOP.v Line: 124
 Info (12128): Elaborating entity "flag_zero" for hierarchy "flag_zero:comb_29" File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/ULA_TOP.v Line: 126
 Info (12128): Elaborating entity "flag_error" for hierarchy "flag_error:comb_30" File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/ULA_TOP.v Line: 128
 Info (12128): Elaborating entity "flag_cout" for hierarchy "flag_cout:comb_31" File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/ULA_TOP.v Line: 130
+Info (12128): Elaborating entity "flag_ov" for hierarchy "flag_ov:comb_32" File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/ULA_TOP.v Line: 132
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX2[1]" is stuck at GND File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/ULA_TOP.v Line: 8
     Warning (13410): Pin "HEX5[6]" is stuck at GND File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/ULA_TOP.v Line: 9
+    Warning (13410): Pin "LEDR6" is stuck at GND File: /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/ULA_TOP.v Line: 14
 Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/output_files/PBL1.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 323 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 327 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 12 input pins
-    Info (21059): Implemented 31 output pins
-    Info (21061): Implemented 280 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 16 warnings
-    Info: Peak virtual memory: 402 megabytes
-    Info: Processing ended: Fri Sep 19 09:13:00 2025
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:15
+    Info (21059): Implemented 32 output pins
+    Info (21061): Implemented 283 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 18 warnings
+    Info: Peak virtual memory: 408 megabytes
+    Info: Processing ended: Fri Sep 19 11:25:52 2025
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:14
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in /home/aluno/Documentos/ft_quartus/ula_project-tenorio_teste/output_files/PBL1.map.smsg.
 
 

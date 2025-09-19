@@ -9,7 +9,8 @@ module ULA_TOP (
 	 output wire [6:0] HEX5,
 	 output LEDR9,
 	 output LEDR8,
-	 output LEDR7
+	 output LEDR7,
+	 output LEDR6
 );
 
 	// Invertendo butoes
@@ -25,8 +26,7 @@ module ULA_TOP (
 
     // --- Fios Intermediários ---
 	 wire [4:0] ac;
-    wire [4:0] resultado_soma, resultado_sub, resultado_div;
-	 wire resultado_and, resultado_or, resultado_xor;
+    wire [4:0] resultado_div, resultado_soma, resultado_and, resultado_or, resultado_xor, resultado_sub;
     wire cout_soma, ov_soma, cout_sub, ov_sub;
     wire [7:0] resultado_ula, resultado_mult;
     wire [3:0] digito_dezena;
@@ -128,5 +128,7 @@ module ULA_TOP (
 	 flag_error (.b(b), .seletor(seletor), .sub_neg(resultado_sub[3]), .ledr9(LEDR9));
 	 
 	 flag_cout(.cout_soma(cout_soma), .seletor(seletor), .ledr7(LEDR7));
+	 
+	 flag_ov (.ledr6(LEDR6));
 
 endmodule

@@ -11,37 +11,38 @@ SW[8] => carry_in_switch.IN2
 SW[9] => seletor[0].IN4
 KEY[0] => seletor[1].IN4
 KEY[1] => seletor[2].IN4
-HEX0[0] << HEX0[0].DB_MAX_OUTPUT_PORT_TYPE
-HEX0[1] << HEX0[1].DB_MAX_OUTPUT_PORT_TYPE
-HEX0[2] << HEX0[2].DB_MAX_OUTPUT_PORT_TYPE
-HEX0[3] << HEX0[3].DB_MAX_OUTPUT_PORT_TYPE
-HEX0[4] << HEX0[4].DB_MAX_OUTPUT_PORT_TYPE
-HEX0[5] << HEX0[5].DB_MAX_OUTPUT_PORT_TYPE
-HEX0[6] << HEX0[6].DB_MAX_OUTPUT_PORT_TYPE
-HEX1[0] << HEX1[0].DB_MAX_OUTPUT_PORT_TYPE
-HEX1[1] << HEX1[1].DB_MAX_OUTPUT_PORT_TYPE
-HEX1[2] << HEX1[2].DB_MAX_OUTPUT_PORT_TYPE
-HEX1[3] << HEX1[3].DB_MAX_OUTPUT_PORT_TYPE
-HEX1[4] << HEX1[4].DB_MAX_OUTPUT_PORT_TYPE
-HEX1[5] << HEX1[5].DB_MAX_OUTPUT_PORT_TYPE
-HEX1[6] << HEX1[6].DB_MAX_OUTPUT_PORT_TYPE
-HEX2[0] << HEX2[0].DB_MAX_OUTPUT_PORT_TYPE
-HEX2[1] << HEX2[1].DB_MAX_OUTPUT_PORT_TYPE
-HEX2[2] << HEX2[2].DB_MAX_OUTPUT_PORT_TYPE
-HEX2[3] << HEX2[3].DB_MAX_OUTPUT_PORT_TYPE
-HEX2[4] << HEX2[4].DB_MAX_OUTPUT_PORT_TYPE
-HEX2[5] << HEX2[5].DB_MAX_OUTPUT_PORT_TYPE
-HEX2[6] << HEX2[6].DB_MAX_OUTPUT_PORT_TYPE
-HEX5[0] << operacao_7seg:comb_28.HEX5
-HEX5[1] << operacao_7seg:comb_28.HEX5
-HEX5[2] << operacao_7seg:comb_28.HEX5
-HEX5[3] << operacao_7seg:comb_28.HEX5
-HEX5[4] << operacao_7seg:comb_28.HEX5
-HEX5[5] << operacao_7seg:comb_28.HEX5
-HEX5[6] << operacao_7seg:comb_28.HEX5
-LEDR9 << flag_error:comb_30.ledr9
-LEDR8 << flag_zero:comb_29.ledr8
-LEDR7 << flag_cout:comb_31.ledr7
+HEX0[0] <= HEX0[0].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[1] <= HEX0[1].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[2] <= HEX0[2].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[3] <= HEX0[3].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[4] <= HEX0[4].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[5] <= HEX0[5].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[6] <= HEX0[6].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[0] <= HEX1[0].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[1] <= HEX1[1].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[2] <= HEX1[2].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[3] <= HEX1[3].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[4] <= HEX1[4].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[5] <= HEX1[5].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[6] <= HEX1[6].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[0] <= HEX2[0].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[1] <= HEX2[1].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[2] <= HEX2[2].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[3] <= HEX2[3].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[4] <= HEX2[4].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[5] <= HEX2[5].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[6] <= HEX2[6].DB_MAX_OUTPUT_PORT_TYPE
+HEX5[0] <= operacao_7seg:comb_28.HEX5
+HEX5[1] <= operacao_7seg:comb_28.HEX5
+HEX5[2] <= operacao_7seg:comb_28.HEX5
+HEX5[3] <= operacao_7seg:comb_28.HEX5
+HEX5[4] <= operacao_7seg:comb_28.HEX5
+HEX5[5] <= operacao_7seg:comb_28.HEX5
+HEX5[6] <= operacao_7seg:comb_28.HEX5
+LEDR9 <= flag_error:comb_30.ledr9
+LEDR8 <= flag_zero:comb_29.ledr8
+LEDR7 <= flag_cout:comb_31.ledr7
+LEDR6 <= flag_ov:comb_32.ledr6
 
 
 |ULA_TOP|soma_cin_a:U_somaCin
@@ -272,29 +273,37 @@ cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |ULA_TOP|unidade_and_4bits:U_AND
-AC[0] => AND0.IN0
-AC[1] => AND0.IN1
-AC[2] => AND0.IN2
-AC[3] => AND0.IN3
-AC[4] => AND0.IN4
-B[0] => AND0.IN5
-B[1] => AND0.IN6
-B[2] => AND0.IN7
-B[3] => AND0.IN8
-S <= AND0.DB_MAX_OUTPUT_PORT_TYPE
+AC[0] => and0.IN0
+AC[1] => and1.IN0
+AC[2] => and2.IN0
+AC[3] => and3.IN0
+AC[4] => ~NO_FANOUT~
+B[0] => and0.IN1
+B[1] => and1.IN1
+B[2] => and2.IN1
+B[3] => and3.IN1
+S[0] <= and0.DB_MAX_OUTPUT_PORT_TYPE
+S[1] <= and1.DB_MAX_OUTPUT_PORT_TYPE
+S[2] <= and2.DB_MAX_OUTPUT_PORT_TYPE
+S[3] <= and3.DB_MAX_OUTPUT_PORT_TYPE
+S[4] <= <GND>
 
 
 |ULA_TOP|unidade_or_4bits:U_OR
-AC[0] => OR0.IN0
-AC[1] => OR0.IN1
-AC[2] => OR0.IN2
-AC[3] => OR0.IN3
-AC[4] => OR0.IN4
-B[0] => OR0.IN5
-B[1] => OR0.IN6
-B[2] => OR0.IN7
-B[3] => OR0.IN8
-S <= OR0.DB_MAX_OUTPUT_PORT_TYPE
+AC[0] => or0.IN0
+AC[1] => or1.IN0
+AC[2] => or2.IN0
+AC[3] => or3.IN0
+AC[4] => S[4].DATAIN
+B[0] => or0.IN1
+B[1] => or1.IN1
+B[2] => or2.IN1
+B[3] => or3.IN1
+S[0] <= or0.DB_MAX_OUTPUT_PORT_TYPE
+S[1] <= or1.DB_MAX_OUTPUT_PORT_TYPE
+S[2] <= or2.DB_MAX_OUTPUT_PORT_TYPE
+S[3] <= or3.DB_MAX_OUTPUT_PORT_TYPE
+S[4] <= AC[4].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |ULA_TOP|mutiplicacao_5x4:U_Mult
@@ -559,16 +568,20 @@ cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |ULA_TOP|unidade_xor_5x4:U_xor
-a[0] => u_xr.IN0
-a[1] => u_xr.IN1
-a[2] => u_xr.IN2
-a[3] => u_xr.IN3
-a[4] => u_xr.IN4
-b[0] => u_xr.IN5
-b[1] => u_xr.IN6
-b[2] => u_xr.IN7
-b[3] => u_xr.IN8
-s <= u_xr.DB_MAX_OUTPUT_PORT_TYPE
+a[0] => or0.IN0
+a[1] => or1.IN0
+a[2] => or2.IN0
+a[3] => or3.IN0
+a[4] => s[4].DATAIN
+b[0] => or0.IN1
+b[1] => or1.IN1
+b[2] => or2.IN1
+b[3] => or3.IN1
+s[0] <= or0.DB_MAX_OUTPUT_PORT_TYPE
+s[1] <= or1.DB_MAX_OUTPUT_PORT_TYPE
+s[2] <= or2.DB_MAX_OUTPUT_PORT_TYPE
+s[3] <= or3.DB_MAX_OUTPUT_PORT_TYPE
+s[4] <= a[4].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |ULA_TOP|divisao_5por4:U_div
@@ -904,9 +917,21 @@ D6[1] => D6[1].IN1
 D6[2] => D6[2].IN1
 D6[3] => D6[3].IN1
 D6[4] => D6[4].IN1
-D2 => D2.IN1
-D3 => D3.IN1
-D5 => D5.IN1
+D2[0] => D2[0].IN1
+D2[1] => D2[1].IN1
+D2[2] => D2[2].IN1
+D2[3] => D2[3].IN1
+D2[4] => D2[4].IN1
+D3[0] => D3[0].IN1
+D3[1] => D3[1].IN1
+D3[2] => D3[2].IN1
+D3[3] => D3[3].IN1
+D3[4] => D3[4].IN1
+D5[0] => D5[0].IN1
+D5[1] => D5[1].IN1
+D5[2] => D5[2].IN1
+D5[3] => D5[3].IN1
+D5[4] => D5[4].IN1
 D4[0] => D4[0].IN1
 D4[1] => D4[1].IN1
 D4[2] => D4[2].IN1
@@ -2346,5 +2371,9 @@ seletor[0] => fc.IN1
 seletor[1] => fc.IN2
 seletor[2] => fc.IN3
 ledr7 <= fc.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ULA_TOP|flag_ov:comb_32
+ledr6 <= <GND>
 
 
