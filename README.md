@@ -2,7 +2,7 @@
 
 ## 📖 Visão Geral
 
-Este projeto implementa uma Unidade Lógica e Aritmética (ULA) completa em Verilog, projetada para a placa de desenvolvimento DE10Lite. A ULA é capaz de realizar diversas operações aritméticas e lógicas em dois operandos de entrada, exibindo os resultados em displays de 7 segmentos e o status da operação através de LEDs.
+Este projeto foi implementado por **André Vinícius, Felipe Tenório e Antônio Herval**, formulamos uma Unidade Lógica e Aritmética (ULA) completa em Verilog, projetada para a placa de desenvolvimento DE10Lite. A ULA é capaz de realizar diversas operações aritméticas e lógicas em dois operandos de entrada, exibindo os resultados em displays de 7 segmentos e o status da operação através de LEDs.
 
 O sistema é controlado por chaves (SW) e botões (KEY) na placa, permitindo ao usuário selecionar os operandos e a operação desejada de forma interativa.
 
