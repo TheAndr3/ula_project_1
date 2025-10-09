@@ -30,6 +30,8 @@ module calculadora_rpn_completa (
     wire [7:0] display_a, display_b;
     wire [7:0] valor_exibicao;
     wire [7:0] resultado_ula;
+    wire [7:0] resultado_memoria;
+    wire [7:0] valor_memoria;
     
     // Flags
     wire pilha_vazia, pilha_cheia;
@@ -90,11 +92,28 @@ module calculadora_rpn_completa (
         .resultado_ula(resultado_ula)
     );
 
+    // Sistema de controle de memória
+    controle_memoria U_CONTROLE_MEM (
+        .operacao(operacao),
+        .resultado_ula(resultado_ula),
+        .executar(executar),
+        .clk(clk_sync),
+        .rst(rst),
+        .carregar_memoria(),
+        .valor_memoria(valor_memoria),
+        .resultado_final(resultado_memoria)
+    );
+
     // Seleção do valor para exibição
-    mux_2_para_1_8bits U_MUX_EXIBICAO (
+    // 0: Mostrar registrador A da pilha
+    // 1: Mostrar resultado da ULA
+    // 2: Mostrar valor da memória
+    mux_4_para_1_8bits U_MUX_EXIBICAO (
         .D0(display_a),         // Mostrar registrador A
         .D1(resultado_ula),     // Mostrar resultado da ULA
-        .S(executar),           // Selecionar baseado na execução
+        .D2(valor_memoria),     // Mostrar valor da memória
+        .D3(gnd_bus),           // Não usado
+        .S({executar, SW[8]}),  // Selecionar baseado na execução e SW[8]
         .Y(valor_exibicao)
     );
 
