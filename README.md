@@ -133,12 +133,13 @@ ula_project/
 ├── decodificador_7seg.v            # Decodificador para displays
 │
 ├── # Multiplexadores
-├── mux_2_para_1.v                  # Multiplexador 2:1
+├── mux_2_para_1.v                  # Multiplexador 2:1 de 1 bit
 ├── mux_2_para_1_8bits.v            # Multiplexador 2:1 de 8 bits
-├── mux_4_para_1.v                  # Multiplexador 4:1
+├── mux_4_para_1.v                  # Multiplexador 4:1 de 1 bit
 ├── mux_4_para_1_4bits.v            # Multiplexador 4:1 de 4 bits
 ├── mux_4_para_1_7bits.v            # Multiplexador 4:1 de 7 bits
-├── mux_8_para_1.v                  # Multiplexador 8:1
+├── mux_4_para_1_8bits.v            # Multiplexador 4:1 de 8 bits
+├── mux_8_para_1.v                  # Multiplexador 8:1 de 1 bit
 ├── mux_8_para_1_8bits.v            # Multiplexador 8:1 de 8 bits
 │
 ├── # Arquivos do Quartus
