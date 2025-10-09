@@ -18,7 +18,7 @@ module pilha_rpn (
     output wire overflow,                // Flag de overflow da ULA
     output wire zero,                    // Flag de zero da ULA
     output wire carry_out,               // Flag de carry out da ULA
-    output wire erro                     // Flag de erro da ULA
+    output wire erro                     // Flag de erro da ULa
 );
 
     // Registradores da pilha (4 registradores de 8 bits)
