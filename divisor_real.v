@@ -114,21 +114,20 @@ module divisor_real (
         .neg()
     );
 
-    // Lógica de controle
-    // Load inicial do resto (dividendo)
-    and U_LOAD_RESTO_INIT (load_resto, start, rst);
+    // Lógica de controle simplificada
+    // Load inicial do resto (dividendo) quando start = 1
+    buf U_LOAD_RESTO_INIT (load_resto, start);
     
-    // Load do resto durante a divisão
-    wire load_resto_div;
-    and U_LOAD_RESTO_DIV (load_resto_div, subtracao_possivel, contador_out[0], contador_out[1], contador_out[2]);
+    // Load do resto durante a divisão quando subtração é possível
+    buf U_LOAD_RESTO_DIV (load_resto_div, subtracao_possivel);
     
-    // Load do quociente
+    // Load do quociente quando start = 1 ou shift = 1
     or U_LOAD_QUOCIENTE (load_quociente, start, shift_quociente);
     
-    // Shift do quociente
-    and U_SHIFT_QUOCIENTE (shift_quociente, subtracao_possivel, contador_out[0], contador_out[1], contador_out[2]);
+    // Shift do quociente quando subtração é possível
+    buf U_SHIFT_QUOCIENTE (shift_quociente, subtracao_possivel);
     
-    // Entrada do resto
+    // Entrada do resto - dividendo inicial ou resultado da subtração
     mux_2_para_1_8bits U_MUX_RESTO (
         .D0(dividendo),           // Inicialização
         .D1(subtracao_result),    // Resultado da subtração
@@ -136,7 +135,7 @@ module divisor_real (
         .Y(resto_next)
     );
     
-    // Entrada do quociente
+    // Entrada do quociente - shift à esquerda quando necessário
     wire [7:0] quociente_shift;
     // Shift à esquerda do quociente
     buf U_Q_SHIFT0 (quociente_shift[0], gnd);

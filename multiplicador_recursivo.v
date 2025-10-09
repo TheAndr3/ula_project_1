@@ -100,38 +100,42 @@ module multiplicador_recursivo (
         .ov()
     );
 
-    // Lógica de controle
-    // Load inicial dos registradores
-    and U_LOAD_MULTIPLICANDO (multiplicando_load, start, rst);
-    and U_LOAD_MULTIPLICADOR (multiplicador_load, start, rst);
+    // Lógica de controle simplificada
+    // Load inicial dos registradores quando start = 1
+    buf U_LOAD_MULTIPLICANDO (multiplicando_load, start);
+    buf U_LOAD_MULTIPLICADOR (multiplicador_load, start);
     
-    // Enable do shift register
-    and U_SHIFT_ENABLE (shift_enable, start, contador_out[0], contador_out[1], contador_out[2]);
+    // Enable do shift register quando start = 1
+    buf U_SHIFT_ENABLE (shift_enable, start);
     
-    // Enable do somador
-    and U_SOMADOR_ENABLE (somador_enable, start, bit_atual);
+    // Enable do somador quando bit atual = 1
+    buf U_SOMADOR_ENABLE (somador_enable, bit_atual);
     
-    // Load do acumulador
+    // Load do acumulador quando start = 1 ou somador enable = 1
     or U_ACUMULADOR_LOAD (acumulador_load, start, somador_enable);
     
-    // Entradas do somador
-    mux_2_para_1_8bits U_MUX_SOMADOR_A (
-        .D0(gnd_bus),           // Inicialização
-        .D1(acumulador_out),    // Acumulador atual
-        .S(start),
-        .Y(somador_a)
-    );
+    // Entradas do somador - sempre usar acumulador e multiplicando
+    buf U_SOMADOR_A0 (somador_a[0], acumulador_out[0]);
+    buf U_SOMADOR_A1 (somador_a[1], acumulador_out[1]);
+    buf U_SOMADOR_A2 (somador_a[2], acumulador_out[2]);
+    buf U_SOMADOR_A3 (somador_a[3], acumulador_out[3]);
+    buf U_SOMADOR_A4 (somador_a[4], acumulador_out[4]);
+    buf U_SOMADOR_A5 (somador_a[5], acumulador_out[5]);
+    buf U_SOMADOR_A6 (somador_a[6], acumulador_out[6]);
+    buf U_SOMADOR_A7 (somador_a[7], acumulador_out[7]);
     
-    mux_2_para_1_8bits U_MUX_SOMADOR_B (
-        .D0(gnd_bus),           // Inicialização
-        .D1(multiplicando_reg), // Multiplicando
-        .S(somador_enable),
-        .Y(somador_b)
-    );
+    buf U_SOMADOR_B0 (somador_b[0], multiplicando_reg[0]);
+    buf U_SOMADOR_B1 (somador_b[1], multiplicando_reg[1]);
+    buf U_SOMADOR_B2 (somador_b[2], multiplicando_reg[2]);
+    buf U_SOMADOR_B3 (somador_b[3], multiplicando_reg[3]);
+    buf U_SOMADOR_B4 (somador_b[4], multiplicando_reg[4]);
+    buf U_SOMADOR_B5 (somador_b[5], multiplicando_reg[5]);
+    buf U_SOMADOR_B6 (somador_b[6], multiplicando_reg[6]);
+    buf U_SOMADOR_B7 (somador_b[7], multiplicando_reg[7]);
     
-    // Entrada do acumulador
+    // Entrada do acumulador - resultado do somador quando enable, senão mantém
     mux_2_para_1_8bits U_MUX_ACUMULADOR (
-        .D0(gnd_bus),           // Inicialização
+        .D0(acumulador_out),    // Manter valor atual
         .D1(somador_out),       // Resultado do somador
         .S(somador_enable),
         .Y(acumulador_in)

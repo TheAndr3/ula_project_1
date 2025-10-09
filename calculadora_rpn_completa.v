@@ -89,7 +89,11 @@ module calculadora_rpn_completa (
         .display_b(display_b),
         .pilha_vazia(pilha_vazia),
         .pilha_cheia(pilha_cheia),
-        .resultado_ula(resultado_ula)
+        .resultado_ula(resultado_ula),
+        .overflow(overflow),
+        .zero(zero),
+        .carry_out(carry_out),
+        .erro(erro)
     );
 
     // Sistema de controle de memória

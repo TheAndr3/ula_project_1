@@ -13,6 +13,7 @@ module conversor_bases (
     // Fios intermediários para conversões
     wire [3:0] digito_unidade, digito_dezena, digito_centena, digito_milhar;
     wire [3:0] hex_unidade, hex_dezena;
+    wire [3:0] mux_unidade_out, mux_dezena_out, mux_centena_out;
     
     // Constantes
     wire gnd, vcc;
@@ -78,7 +79,7 @@ module conversor_bases (
         .D2(oct_unidade),       // Octal
         .D3(gnd_bus),           // Não usado
         .S(base_selecionada),
-        .Y(digito_unidade)
+        .Y(mux_unidade_out)
     );
 
     // MUX para dezena
@@ -88,7 +89,7 @@ module conversor_bases (
         .D2(oct_dezena),        // Octal
         .D3(gnd_bus),           // Não usado
         .S(base_selecionada),
-        .Y(digito_dezena)
+        .Y(mux_dezena_out)
     );
 
     // MUX para centena
@@ -98,13 +99,13 @@ module conversor_bases (
         .D2(oct_centena),       // Octal
         .D3(gnd_bus),           // Não usado
         .S(base_selecionada),
-        .Y(digito_centena)
+        .Y(mux_centena_out)
     );
 
     // Decodificadores para displays de 7 segmentos
-    decodificador_7seg U_DECOD_UNIDADE (.D(digito_unidade), .SEG(HEX0));
-    decodificador_7seg U_DECOD_DEZENA (.D(digito_dezena), .SEG(HEX1));
-    decodificador_7seg U_DECOD_CENTENA (.D(digito_centena), .SEG(HEX2));
+    decodificador_7seg U_DECOD_UNIDADE (.D(mux_unidade_out), .SEG(HEX0));
+    decodificador_7seg U_DECOD_DEZENA (.D(mux_dezena_out), .SEG(HEX1));
+    decodificador_7seg U_DECOD_CENTENA (.D(mux_centena_out), .SEG(HEX2));
     decodificador_7seg U_DECOD_MILHAR (.D(gnd_bus), .SEG(HEX3)); // Sempre desligado
 
 endmodule

@@ -54,7 +54,7 @@ module controle_memoria (
         .clk(clk),
         .rst(rst),
         .carregar(carregar_memoria),
-        .valor_memoria(memoria_saida),
+        .valor_memoria(gnd_bus),
         .memoria_saida(memoria_saida),
         .resultado_saida(resultado_saida)
     );

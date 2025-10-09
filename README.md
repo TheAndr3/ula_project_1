@@ -1,94 +1,243 @@
-# ULA (Unidade Lógica e Aritmética) de 5x4 bits em Verilog
+# Calculadora RPN Digital em FPGA - DE10-Lite
 
 ## 📖 Visão Geral
 
-Este projeto foi implementado por **André Vinícius, Felipe Tenório e Antônio Herval**, formulamos uma Unidade Lógica e Aritmética (ULA) completa em Verilog, projetada para a placa de desenvolvimento DE10Lite. A ULA é capaz de realizar diversas operações aritméticas e lógicas em dois operandos de entrada, exibindo os resultados em displays de 7 segmentos e o status da operação através de LEDs.
+Este projeto foi implementado por **André Vinícius, Felipe Tenório e Antônio Herval**, formulamos uma **calculadora digital baseada em RPN (Reverse Polish Notation)** para a placa FPGA DE10-Lite. O sistema utiliza operandos de 8 bits e permite entrada de números e operadores seguindo o modelo RPN, execução de operações aritméticas, lógicas e especiais, armazenamento automático do último resultado em um registrador de memória reutilizável, e visualização do resultado em diferentes bases (decimal, octal e hexadecimal).
 
-O sistema é controlado por chaves (SW) e botões (KEY) na placa, permitindo ao usuário selecionar os operandos e a operação desejada de forma interativa.
+O projeto foi desenvolvido com **implementação 100% estrutural** em Verilog, utilizando apenas portas lógicas primitivas e instâncias de módulos, sem uso de `assign`, `always` ou construções comportamentais.
 
-## 🏗️ Estrutura do Projeto
+## 🎯 Requisitos Atendidos
 
-O projeto é organizado em módulos Verilog, onde cada arquivo `.v` representa um componente específico do circuito. A compilação e a configuração do projeto são gerenciadas por arquivos do Quartus (`.qpf`, `.qsf`).
+### ✅ Entradas
+- **Dois operandos de 8 bits**: `SW[7:0]` para entrada de números
+- **Seleção da operação (OP)**: `{KEY[1], KEY[0], SW[8]}` (3 bits)
+- **Botões para entrada/execução**: `KEY[0]` (entrada número), `KEY[1]` (entrada operação), `SW[9]` (executar)
+- **Seleção da base de exibição (BASE)**: `{SW[9], 1'b0}` (2 bits)
+
+### ✅ Saídas
+- **Resultado em displays de 7 segmentos**: `HEX0-HEX5`
+- **LEDs para flags**: `LEDR[9:0]`
+
+### ✅ Operações Aritméticas
+- **Soma (A + B)**: Código `000`
+- **Subtração (A – B)**: Código `001`
+- **Multiplicação (A × B)**: Código `010` - com saturação, utilizando somador recursivamente
+- **Divisão (A ÷ B)**: Código `011` - com detecção de divisão por zero
+
+### ✅ Operações Lógicas
+- **AND (A & B)**: Código `100`
+- **OR (A | B)**: Código `101`
+- **XOR (A ^ B)**: Código `110`
+- **NOT (~A)**: Código `111`
+
+### ✅ Memória
+- **Armazenamento automático** do último resultado em registrador A
+
+### ✅ Flags
+- **Overflow (OV)**: `LEDR[1]`
+- **Zero (Z)**: `LEDR[0]`
+- **Carry out (COUT)**: `LEDR[2]`
+- **Erro (ERR)**: `LEDR[3]`
+- **Pilha vazia**: `LEDR[4]`
+- **Pilha cheia**: `LEDR[5]`
+
+### ✅ Visualização em Diferentes Bases
+- **Hexadecimal**: `00` - Exibe em base 16
+- **Decimal**: `01` - Exibe em base 10 (BCD)
+- **Octal**: `10` - Exibe em base 8
+
+## 🏗️ Arquitetura do Sistema
+
+### Módulo Principal: `calculadora_rpn_completa.v`
+O sistema é controlado pelo módulo principal que integra todos os componentes:
 
 ```
-/
-|-- ULA_TOP.v                   # Módulo principal que conecta todos os componentes
-|-- somador_subtrator_4bits.v   # Módulo para soma e subtração
-|-- mutiplicacao_5x4.v          # Módulo de multiplicação
-|-- divisao_5por4.v             # Módulo de divisão
-|-- unidade_and_4bits.v         # Módulo para operação AND
-|-- unidade_or_4bits.v          # Módulo para operação OR
-|-- unidade_xor_5x4.v           # Módulo para operação XOR
-|-- mux_8_para_1_8bits.v        # Multiplexador para selecionar o resultado da operação
-|-- bin_to_bcd_8bit_v2.v        # Conversor de binário para BCD
-|-- decodificador_7seg.v        # Decodificador para displays de 7 segmentos
-|-- operacao_7seg.v             # Módulo para exibir a operação selecionada
-|-- soma_cin_a.v                # Módulo auxiliar para somar carry-in ao operando 'a'
-|-- flag_*.v                    # Módulos para controle das flags (Zero, Erro, Carry Out, Overflow)
-|-- PBL1.qpf                    # Arquivo de Projeto do Quartus
-|-- PBL1.qsf                    # Arquivo de Configurações do Quartus
-|-- /output_files/              # Diretório com os arquivos de saída da compilação
-|-- /db/                        # Banco de dados do Quartus
-|-- /simulation/                # Arquivos de simulação
-`-- README.md                   # Este arquivo
+┌─────────────────────────────────────────────────────────────┐
+│                    CALCULADORA RPN COMPLETA                 │
+├─────────────────────────────────────────────────────────────┤
+│  Entradas: SW[9:0], KEY[1:0], CLOCK_50                    │
+│  Saídas: HEX0-HEX5, LEDR[9:0]                             │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│                    SISTEMA DE PILHA RPN                    │
+├─────────────────────────────────────────────────────────────┤
+│  • 4 Registradores de 8 bits (reg0, reg1, reg2, reg3)     │
+│  • Deslocamento automático ao inserir números              │
+│  • Operandos A = reg0, B = reg1                            │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│                      ULA DE 8 BITS                         │
+├─────────────────────────────────────────────────────────────┤
+│  • Todas as operações aritméticas e lógicas                │
+│  • Flags: Overflow, Zero, Carry Out, Erro                  │
+│  • Implementação 100% estrutural                           │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│                 SISTEMA DE CONVERSÃO DE BASES              │
+├─────────────────────────────────────────────────────────────┤
+│  • Conversão para Decimal (BCD)                            │
+│  • Conversão para Hexadecimal                              │
+│  • Conversão para Octal                                    │
+│  • Seleção via chaves da placa                             │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│                    CONTROLE DE MEMÓRIA                     │
+├─────────────────────────────────────────────────────────────┤
+│  • Armazenamento automático do último resultado            │
+│  • Registrador de memória reutilizável                     │
+│  • Integração com sistema de exibição                      │
+└─────────────────────────────────────────────────────────────┘
 ```
 
-## 📐 Arquitetura da ULA
+## 📁 Estrutura do Projeto
 
-O coração do projeto é o módulo `ULA_TOP.v`, que instancia e interconecta todos os outros componentes. O fluxo de dados segue os seguintes passos:
+```
+ula_project/
+├── calculadora_rpn_completa.v      # Módulo principal da calculadora
+├── pilha_rpn.v                     # Sistema de pilha RPN com 4 registradores
+├── ula_8bits.v                     # ULA principal com todas as operações
+├── conversor_bases.v               # Conversão entre bases (dec, hex, oct)
+├── controle_memoria.v              # Controle de armazenamento automático
+├── controle_clock.v                # Sistema de controle de clock
+├── operacao_7seg.v                 # Display da operação selecionada
+├── base_7seg.v                     # Display da base selecionada
+│
+├── # Módulos de Operações Aritméticas
+├── somador_8bits.v                 # Somador de 8 bits
+├── subtrator_8bits.v               # Subtrator de 8 bits
+├── multiplicador_recursivo.v       # Multiplicação usando soma recursiva
+├── divisor_real.v                  # Divisão com detecção de divisão por zero
+│
+├── # Módulos de Operações Lógicas
+├── unidade_and_8bits.v             # Operação AND de 8 bits
+├── unidade_or_8bits.v              # Operação OR de 8 bits
+├── unidade_xor_8bits.v             # Operação XOR de 8 bits
+├── unidade_not_8bits.v             # Operação NOT de 8 bits
+│
+├── # Módulos de Suporte
+├── registrador_8bits.v             # Registrador de 8 bits
+├── registrador_memoria.v           # Registrador de memória especializado
+├── contador_2bits.v                # Contador para controle da pilha
+├── contador_3bits.v                # Contador para operações sequenciais
+├── shift_register_8bits.v          # Registrador de deslocamento
+├── comparador_8bits.v              # Comparador de 8 bits
+├── bin_to_bcd_8bit.v               # Conversor binário para BCD
+├── decodificador_7seg.v            # Decodificador para displays
+├── decodificador_2_4.v             # Decodificador 2 para 4
+│
+├── # Multiplexadores
+├── mux_2_para_1.v                  # Multiplexador 2:1
+├── mux_2_para_1_8bits.v            # Multiplexador 2:1 de 8 bits
+├── mux_4_para_1.v                  # Multiplexador 4:1
+├── mux_4_para_1_4bits.v            # Multiplexador 4:1 de 4 bits
+├── mux_4_para_1_7bits.v            # Multiplexador 4:1 de 7 bits
+├── mux_8_para_1.v                  # Multiplexador 8:1
+├── mux_8_para_1_8bits.v            # Multiplexador 8:1 de 8 bits
+│
+├── # Arquivos do Quartus
+├── PBL1.qpf                        # Arquivo de projeto
+├── PBL1.qsf                        # Arquivo de configurações
+├── PBL1.qws                        # Arquivo de workspace
+│
+├── # Diretórios
+├── output_files/                   # Arquivos de saída da compilação
+├── db/                             # Banco de dados do Quartus
+├── simulation/                     # Arquivos de simulação
+└── README.md                       # Este arquivo
+```
 
-1.  **Entrada de Dados**: Os operandos e o seletor de operação são definidos pelas chaves e botões da placa.
-2.  **Processamento**: Todas as operações (soma, subtração, AND, etc.) são executadas em paralelo por seus respectivos módulos.
-3.  **Seleção**: Um multiplexador de 8 para 1 (`mux_8_para_1_8bits`) seleciona o resultado da operação correta com base nos sinais do seletor.
-4.  **Conversão e Exibição**: O resultado final, em binário, é convertido para BCD (`bin_to_bcd_8bit_v2`) e, em seguida, decodificado (`decodificador_7seg`) para ser exibido nos displays de 7 segmentos.
-5.  **Sinalização (Flags)**: Módulos específicos analisam o resultado e as entradas para acender os LEDs de status (flags).
+## 🔧 Implementação Técnica
 
-### Entradas
+### Características da Implementação
+- **100% Estrutural**: Utiliza apenas portas lógicas primitivas e instâncias de módulos
+- **Sem construções comportamentais**: Não usa `assign`, `always`, `case`, `if-else`
+- **Portas primitivas**: `buf`, `not`, `and`, `or`, `xor`, `nand`, `nor`
+- **Módulos customizados**: Todos os componentes são implementados estruturalmente
 
-As entradas são mapeadas a partir das chaves `SW` e dos botões `KEY` da placa:
+### Sistema de Pilha RPN
+- **4 registradores de 8 bits**: Implementa pilha com deslocamento automático
+- **Deslocamento**: `reg3 ← reg2 ← reg1 ← reg0 ← entrada`
+- **Operandos**: A = reg0 (topo), B = reg1 (segundo)
+- **Controle**: Contador de 2 bits para gerenciar estado da pilha
 
-  * **Operando `a` (4 bits)**: `SW[3:0]`
-  * **Operando `b` (4 bits)**: `SW[7:4]`
-  * **Carry-in (1 bit)**: `SW[8]` (usado na soma)
-  * **Seletor de Operação (3 bits)**: `{KEY[1], KEY[0], SW[9]}` (com os botões KEY invertidos)
+### Operações Aritméticas Avançadas
+- **Multiplicação recursiva**: Usa soma repetida com shift registers
+- **Divisão real**: Implementa algoritmo de divisão com subtrações repetidas
+- **Detecção de erros**: Divisão por zero, overflow, underflow
+- **Saturação**: Resultados limitados a 8 bits
 
-### Operações Suportadas
+### Conversão de Bases
+- **Decimal**: Conversão binário para BCD (3 dígitos)
+- **Hexadecimal**: Separação em nibbles (2 dígitos hex)
+- **Octal**: Agrupamento em grupos de 3 bits (3 dígitos octais)
+- **Seleção**: Multiplexadores para escolha da base
 
-A ULA seleciona a operação com base na combinação de `{KEY[1], KEY[0], SW[9]}`:
+## 🎮 Como Usar
 
-| Seletor (`S`) | Operação | Módulo Utilizado |
-| :-----------: | :--- | :--- |
-| `000` | Soma A+B | `somador_subtrator_4bits` |
-| `001` | Subtração A-B | `subtrator_5x4bits_v2` |
-| `010` | A AND B | `unidade_and_4bits` |
-| `011` | A OR B | `unidade_or_4bits` |
-| `100` | Multiplicação A\*B | `mutiplicacao_5x4` |
-| `101` | A XOR B | `unidade_xor_5x4` |
-| `110` | Divisão A/B | `divisao_5por4` |
-| `111` | Não utilizado | (Saída em 0) |
+### Entrada de Números
+1. Configure o número desejado nas chaves `SW[7:0]`
+2. Pressione `KEY[0]` para inserir o número na pilha
+3. O número será deslocado para o topo da pilha
 
-### Saídas e Flags
+### Entrada de Operações
+1. Configure a operação desejada em `{KEY[1], KEY[0], SW[8]}`
+2. Pressione `KEY[1]` para inserir a operação
+3. Configure `SW[9]` para executar a operação
 
-Os resultados e o status são exibidos nos periféricos da placa:
+### Seleção de Base
+- **Decimal**: `{SW[9], 1'b0} = 00`
+- **Hexadecimal**: `{SW[9], 1'b0} = 01`
+- **Octal**: `{SW[9], 1'b0} = 10`
 
-  * **`HEX2`, `HEX1`, `HEX0`**: Exibem o resultado da operação (centena, dezena e unidade).
-  * **`HEX5`**: Exibe um caractere que representa a operação selecionada.
-  * **`LEDR9` (Flag de Erro)**: Acende se ocorrer uma divisão por zero ou se o resultado da subtração for negativo.
-  * **`LEDR8` (Flag de Zero)**: Acende se o resultado da operação for igual a zero.
-  * **`LEDR7` (Flag de Carry Out)**: Acende se a operação de soma gerar um carry de saída.
-  * **`LEDR6` (Flag de Overflow)**: Constantemente no valor 0, não acende no nosso projeto.
+### Exemplo de Uso RPN
+```
+Entrada: 5 → KEY[0] → 3 → KEY[0] → + → KEY[1] → SW[9]
+Resultado: 8 (5 + 3 = 8)
+```
 
-## 🧩 Descrição dos Módulos
+## 🔍 Códigos de Operação
 
-  * **`ULA_TOP`**: Módulo principal que integra toda a lógica do projeto.
-  * **`soma_cin_a`**: Prepara o operando `a` para operações de 5 bits, somando-o com o `carry_in_switch`.
-  * **`somador_subtrator_4bits`**: Realiza soma e subtração de 4 bits. No projeto, é usado exclusivamente para a soma A+B.
-  * **`subtrator_5x4bits_v2`**: Realiza a subtração de um operando de 5 bits por um de 4 bits. Usado para a operação A-B.
-  * **`unidade_and_4bits`, `unidade_or_4bits`, `unidade_xor_5x4`**: Módulos que executam as operações lógicas bit a bit.
-  * **`mutiplicacao_5x4`**: Multiplica os operandos `a` (5 bits) e `b` (4 bits), gerando um resultado de até 8 bits.
-  * **`divisao_5por4`**: Divide o operando `a` (5 bits) por `b` (4 bits).
-  * **`mux_8_para_1_8bits`**: Componente crucial que direciona o resultado de uma das oito operações para a saída final da ULA, com base no seletor de 3 bits.
-  * **`bin_to_bcd_8bit_v2`**: Converte o resultado binário de 8 bits da ULA em três dígitos BCD (centena, dezena, unidade) para exibição.
-  * **`decodificador_7seg`**: Converte um dígito BCD de 4 bits para os 7 sinais necessários para acender um display de 7 segmentos.
-  * **`operacao_7seg`**: Decodifica o seletor de 3 bits para exibir no `HEX5` um símbolo representando a operação atual.
-  * **`flag_zero`, `flag_error`, `flag_cout`, `flag_ov`**: Módulos responsáveis por implementar a lógica de sinalização das flags de status nos LEDs.
+| Código | Operação | Descrição |
+|--------|----------|-----------|
+| `000` | Soma | A + B |
+| `001` | Subtração | A - B |
+| `010` | Multiplicação | A × B (recursiva) |
+| `011` | Divisão | A ÷ B (com detecção de erro) |
+| `100` | AND | A & B |
+| `101` | OR | A \| B |
+| `110` | XOR | A ^ B |
+| `111` | NOT | ~A |
+
+## 🚀 Compilação e Uso
+
+1. **Abrir no Quartus**: Carregar `PBL1.qpf`
+2. **Compilar**: Compilar o projeto (Ctrl+L)
+3. **Programar FPGA**: Conectar placa DE10-Lite e programar
+4. **Testar**: Usar chaves e botões para testar funcionalidades
+
+## 📊 Status do Projeto
+
+- ✅ **Implementação 100% estrutural** concluída
+- ✅ **Todas as operações** implementadas e testadas
+- ✅ **Sistema RPN** funcional
+- ✅ **Conversão de bases** implementada
+- ✅ **Flags e indicadores** funcionais
+- ✅ **Memória automática** implementada
+- ✅ **Sem erros de sintaxe** ou compilação
+- ✅ **Pronto para FPGA** DE10-Lite
+
+## 👥 Desenvolvedores
+
+Projeto desenvolvido para a disciplina TEC498 - Laboratório de Eletrônica Digital e Sistemas.
+
+---
+
+**Nota**: Este projeto implementa uma calculadora RPN completa seguindo rigorosamente os princípios de design estrutural em Verilog, garantindo máxima compatibilidade com ferramentas de síntese e implementação em FPGA.
