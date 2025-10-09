@@ -1,7 +1,6 @@
-// Arquivo: mux_8_para_1_5bits.v
+// Arquivo: mux_8_para_1_8bits.v
 module mux_8_para_1_8bits (
-    input  wire [4:0] D0, D1, D6, D2, D3,  D5, 
-	 input wire [7:0] D4, D7,
+    input  wire [7:0] D0, D1, D2, D3, D4, D5, D6, D7,
     input  wire [2:0] S,
     output wire [7:0] Y
 );
@@ -35,18 +34,18 @@ module mux_8_para_1_8bits (
         .S(S), .Y(Y[4])
     );
 	 mux_8_para_1 MUX_BIT5 (
-        .D0(gnd), .D1(gnd), .D2(gnd), .D3(gnd),
-        .D4(D4[5]), .D5(gnd), .D6(gnd), .D7(D7[4]),
+        .D0(D0[5]), .D1(D1[5]), .D2(D2[5]), .D3(D3[5]),
+        .D4(D4[5]), .D5(D5[5]), .D6(D6[5]), .D7(D7[5]),
         .S(S), .Y(Y[5])
     );
 	 mux_8_para_1 MUX_BIT6 (
-        .D0(gnd), .D1(gnd), .D2(gnd), .D3(gnd),
-        .D4(D4[6]), .D5(gnd), .D6(gnd), .D7(D7[4]),
+        .D0(D0[6]), .D1(D1[6]), .D2(D2[6]), .D3(D3[6]),
+        .D4(D4[6]), .D5(D5[6]), .D6(D6[6]), .D7(D7[6]),
         .S(S), .Y(Y[6])
     );
 	 mux_8_para_1 MUX_BIT7 (
-        .D0(gnd), .D1(gnd), .D2(gnd), .D3(gnd),
-        .D4(D4[7]), .D5(gnd), .D6(gnd), .D7(D7[4]),
+        .D0(D0[7]), .D1(D1[7]), .D2(D2[7]), .D3(D3[7]),
+        .D4(D4[7]), .D5(D5[7]), .D6(D6[7]), .D7(D7[7]),
         .S(S), .Y(Y[7])
     );
 
