@@ -353,3 +353,4 @@ Resultado: 5 ✅ CORRETO!
 
 O projeto agora implementa uma **calculadora RPN completa e funcional**, pronta para demonstração e apresentação! 🎉
 
+

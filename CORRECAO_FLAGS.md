@@ -202,3 +202,4 @@ O problema crítico das flags não conectadas foi **100% resolvido**. O projeto 
 
 **Próximo Passo Recomendado:** Testar na placa DE10-Lite para validação final.
 
+

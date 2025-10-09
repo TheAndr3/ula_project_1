@@ -1,11 +1,12 @@
-// Sistema de pilha RPN usando registradores reais
+// Sistema de pilha RPN simplificado - APENAS 2 NÍVEIS
 // Implementação puramente estrutural
+// Otimizado para operações simples: A op B
 
 module pilha_rpn (
     input  wire [7:0] entrada,           // Entrada de 8 bits
     input  wire [2:0] operacao,          // Código da operação
     input  wire entrada_numero,          // Sinal para entrada de número
-    input  wire entrada_operacao,        // Sinal para entrada de operação
+    input  wire entrada_operacao,        // Sinal para entrada de operação (não usado)
     input  wire executar,                // Sinal para executar operação
     input  wire clk,                     // Clock
     input  wire rst,                     // Reset
@@ -18,21 +19,21 @@ module pilha_rpn (
     output wire overflow,                // Flag de overflow da ULA
     output wire zero,                    // Flag de zero da ULA
     output wire carry_out,               // Flag de carry out da ULA
-    output wire erro                     // Flag de erro da ULa
+    output wire erro                     // Flag de erro da ULA
 );
 
-    // Registradores da pilha (4 registradores de 8 bits)
-    wire [7:0] reg0, reg1, reg2, reg3;
-    wire [7:0] reg0_next, reg1_next, reg2_next, reg3_next;
+    // ========================================
+    // PILHA SIMPLIFICADA: APENAS 2 REGISTRADORES
+    // ========================================
+    // reg0 = Topo da pilha (operando A)
+    // reg1 = Segundo nível (operando B)
+    
+    wire [7:0] reg0, reg1;               // 2 registradores de 8 bits
+    wire [7:0] reg0_next, reg1_next;     // Próximos valores
     
     // Controle da pilha
-    wire [1:0] estado_pilha;
-    wire [3:0] reg_select;
-    wire [3:0] reg_load;
-    
-    // Flags de controle
-    wire reg0_empty, reg1_empty, reg2_empty, reg3_empty;
-    wire reg0_full, reg1_full, reg2_full, reg3_full;
+    wire estado_pilha;                   // 1 bit: 0=vazio/1elem, 1=2elem
+    wire load_reg0, load_reg1;           // Sinais de carga
     
     // Constantes
     wire gnd, vcc;
@@ -52,151 +53,80 @@ module pilha_rpn (
     buf U_GND_BUF6 (gnd_bus[6], gnd);
     buf U_GND_BUF7 (gnd_bus[7], gnd);
 
-    // Contador de estado da pilha
-    contador_2bits U_CONTADOR (
+    // ========================================
+    // CONTADOR DE 1 BIT: Controla 0, 1 ou 2 elementos
+    // ========================================
+    contador_1bit U_CONTADOR (
         .clk(clk),
         .rst(rst),
-        .inc(entrada_numero),
-        .dec(executar),
-        .Q(estado_pilha),
-        .empty(pilha_vazia),
-        .full(pilha_cheia)
+        .inc(entrada_numero),      // Incrementa ao empilhar
+        .dec(executar),            // Decrementa ao executar
+        .Q(estado_pilha),          // 0 ou 1
+        .empty(pilha_vazia),       // 1 quando vazio
+        .full(pilha_cheia)         // 1 quando tem 2 elementos
     );
 
-    // Decodificador para seleção de registradores
-    decodificador_2_4 U_DECOD (
-        .A(estado_pilha),
-        .Y(reg_select)
-    );
+    // ========================================
+    // LÓGICA DE CONTROLE DOS REGISTRADORES
+    // ========================================
+    
+    // Load reg0: sempre que empilhar OU executar
+    or U_LOAD_REG0 (load_reg0, entrada_numero, executar);
+    
+    // Load reg1: apenas quando empilhar E pilha já tem 1 elemento
+    and U_LOAD_REG1 (load_reg1, entrada_numero, estado_pilha);
 
-    // Lógica de carga dos registradores
-    // Carregar quando entrada_numero = 1 OU executar = 1
-    wire load_trigger;
-    or U_LOAD_TRIGGER (load_trigger, entrada_numero, executar);
+    // ========================================
+    // LÓGICA DE DESLOCAMENTO SIMPLIFICADA
+    // ========================================
     
-    buf U_LOAD0 (reg_load[0], load_trigger);
-    buf U_LOAD1 (reg_load[1], load_trigger);
-    buf U_LOAD2 (reg_load[2], load_trigger);
-    buf U_LOAD3 (reg_load[3], load_trigger);
-
-    // Lógica de deslocamento da pilha
-    // Quando entrada_numero = 1: reg3 <- reg2, reg2 <- reg1, reg1 <- reg0, reg0 <- entrada
-    // Quando executar = 1: reg0 <- resultado_ula, reg1 <- reg2, reg2 <- reg3, reg3 <- 0
-    wire [7:0] reg0_shift, reg1_shift, reg2_shift, reg3_shift;
-    wire [7:0] reg0_input;
-    
-    // reg0: Selecionar entre entrada (push número) e resultado_ula (push resultado)
-    mux_2_para_1_8bits U_MUX_REG0_INPUT (
-        .D0(entrada),           // Entrada de número
-        .D1(resultado_ula),     // Resultado da ULA
-        .S(executar),           // Quando executar=1, usar resultado
-        .Y(reg0_input)
-    );
-    
-    // Deslocamento reg0
-    buf U_SHIFT0_0 (reg0_shift[0], reg0_input[0]);
-    buf U_SHIFT0_1 (reg0_shift[1], reg0_input[1]);
-    buf U_SHIFT0_2 (reg0_shift[2], reg0_input[2]);
-    buf U_SHIFT0_3 (reg0_shift[3], reg0_input[3]);
-    buf U_SHIFT0_4 (reg0_shift[4], reg0_input[4]);
-    buf U_SHIFT0_5 (reg0_shift[5], reg0_input[5]);
-    buf U_SHIFT0_6 (reg0_shift[6], reg0_input[6]);
-    buf U_SHIFT0_7 (reg0_shift[7], reg0_input[7]);
-    
-    // reg1: Quando entrada_numero, recebe reg0; quando executar, recebe reg2 (pop)
-    wire [7:0] reg1_input;
-    mux_2_para_1_8bits U_MUX_REG1_INPUT (
-        .D0(reg0),              // Push número: recebe reg0
-        .D1(reg2),              // Executar: recebe reg2 (pop)
+    // reg0_next (topo):
+    // - Se executar: recebe resultado_ula
+    // - Se empilhar: recebe entrada
+    mux_2_para_1_8bits U_MUX_REG0 (
+        .D0(entrada),           // Empilhar número
+        .D1(resultado_ula),     // Resultado da operação
         .S(executar),
-        .Y(reg1_input)
+        .Y(reg0_next)
     );
     
-    buf U_SHIFT1_0 (reg1_shift[0], reg1_input[0]);
-    buf U_SHIFT1_1 (reg1_shift[1], reg1_input[1]);
-    buf U_SHIFT1_2 (reg1_shift[2], reg1_input[2]);
-    buf U_SHIFT1_3 (reg1_shift[3], reg1_input[3]);
-    buf U_SHIFT1_4 (reg1_shift[4], reg1_input[4]);
-    buf U_SHIFT1_5 (reg1_shift[5], reg1_input[5]);
-    buf U_SHIFT1_6 (reg1_shift[6], reg1_input[6]);
-    buf U_SHIFT1_7 (reg1_shift[7], reg1_input[7]);
-    
-    // reg2: Quando entrada_numero, recebe reg1; quando executar, recebe reg3 (pop)
-    wire [7:0] reg2_input;
-    mux_2_para_1_8bits U_MUX_REG2_INPUT (
-        .D0(reg1),              // Push número: recebe reg1
-        .D1(reg3),              // Executar: recebe reg3 (pop)
+    // reg1_next (segundo nível):
+    // - Se empilhar: recebe reg0 antigo (deslocamento)
+    // - Se executar: recebe 0 (limpa)
+    mux_2_para_1_8bits U_MUX_REG1 (
+        .D0(reg0),              // Deslocamento ao empilhar
+        .D1(gnd_bus),           // Limpar ao executar
         .S(executar),
-        .Y(reg2_input)
+        .Y(reg1_next)
     );
-    
-    buf U_SHIFT2_0 (reg2_shift[0], reg2_input[0]);
-    buf U_SHIFT2_1 (reg2_shift[1], reg2_input[1]);
-    buf U_SHIFT2_2 (reg2_shift[2], reg2_input[2]);
-    buf U_SHIFT2_3 (reg2_shift[3], reg2_input[3]);
-    buf U_SHIFT2_4 (reg2_shift[4], reg2_input[4]);
-    buf U_SHIFT2_5 (reg2_shift[5], reg2_input[5]);
-    buf U_SHIFT2_6 (reg2_shift[6], reg2_input[6]);
-    buf U_SHIFT2_7 (reg2_shift[7], reg2_input[7]);
-    
-    // reg3: Quando entrada_numero, recebe reg2; quando executar, recebe 0 (limpa)
-    wire [7:0] reg3_input;
-    mux_2_para_1_8bits U_MUX_REG3_INPUT (
-        .D0(reg2),              // Push número: recebe reg2
-        .D1(gnd_bus),           // Executar: recebe 0 (limpa)
-        .S(executar),
-        .Y(reg3_input)
-    );
-    
-    buf U_SHIFT3_0 (reg3_shift[0], reg3_input[0]);
-    buf U_SHIFT3_1 (reg3_shift[1], reg3_input[1]);
-    buf U_SHIFT3_2 (reg3_shift[2], reg3_input[2]);
-    buf U_SHIFT3_3 (reg3_shift[3], reg3_input[3]);
-    buf U_SHIFT3_4 (reg3_shift[4], reg3_input[4]);
-    buf U_SHIFT3_5 (reg3_shift[5], reg3_input[5]);
-    buf U_SHIFT3_6 (reg3_shift[6], reg3_input[6]);
-    buf U_SHIFT3_7 (reg3_shift[7], reg3_input[7]);
 
-    // Registradores
+    // ========================================
+    // REGISTRADORES DE 8 BITS
+    // ========================================
+    
     registrador_8bits U_REG0 (
-        .D(reg0_shift),
+        .D(reg0_next),
         .clk(clk),
         .rst(rst),
-        .load(reg_load[0]),
+        .load(load_reg0),
         .Q(reg0),
         .Qn()
     );
     
     registrador_8bits U_REG1 (
-        .D(reg1_shift),
+        .D(reg1_next),
         .clk(clk),
         .rst(rst),
-        .load(reg_load[1]),
+        .load(load_reg1),
         .Q(reg1),
         .Qn()
     );
-    
-    registrador_8bits U_REG2 (
-        .D(reg2_shift),
-        .clk(clk),
-        .rst(rst),
-        .load(reg_load[2]),
-        .Q(reg2),
-        .Qn()
-    );
-    
-    registrador_8bits U_REG3 (
-        .D(reg3_shift),
-        .clk(clk),
-        .rst(rst),
-        .load(reg_load[3]),
-        .Q(reg3),
-        .Qn()
-    );
 
-    // Seleção dos operandos para a ULA
+    // ========================================
+    // SAÍDAS PARA DISPLAY (Operandos A e B)
+    // ========================================
+    
     // A = reg0 (topo da pilha)
-    // B = reg1 (segundo da pilha)
     buf U_DISP_A0 (display_a[0], reg0[0]);
     buf U_DISP_A1 (display_a[1], reg0[1]);
     buf U_DISP_A2 (display_a[2], reg0[2]);
@@ -206,6 +136,7 @@ module pilha_rpn (
     buf U_DISP_A6 (display_a[6], reg0[6]);
     buf U_DISP_A7 (display_a[7], reg0[7]);
     
+    // B = reg1 (segundo da pilha)
     buf U_DISP_B0 (display_b[0], reg1[0]);
     buf U_DISP_B1 (display_b[1], reg1[1]);
     buf U_DISP_B2 (display_b[2], reg1[2]);
@@ -215,10 +146,13 @@ module pilha_rpn (
     buf U_DISP_B6 (display_b[6], reg1[6]);
     buf U_DISP_B7 (display_b[7], reg1[7]);
 
-    // ULA de 8 bits
+    // ========================================
+    // ULA DE 8 BITS
+    // ========================================
+    
     ula_8bits U_ULA (
-        .a(reg0),
-        .b(reg1),
+        .a(reg0),              // Operando A (topo)
+        .b(reg1),              // Operando B (segundo)
         .operacao(operacao),
         .clk(clk),
         .rst(rst),
@@ -229,7 +163,10 @@ module pilha_rpn (
         .erro(erro)
     );
 
-    // Resultado final
+    // ========================================
+    // RESULTADO FINAL
+    // ========================================
+    
     buf U_RESULT0 (resultado[0], resultado_ula[0]);
     buf U_RESULT1 (resultado[1], resultado_ula[1]);
     buf U_RESULT2 (resultado[2], resultado_ula[2]);

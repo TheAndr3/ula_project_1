@@ -311,3 +311,4 @@ O sistema está:
 **Disciplina:** TEC498 - Laboratório de Eletrônica Digital e Sistemas  
 **Professor:** [Liberou uso de literals] ✅
 
+

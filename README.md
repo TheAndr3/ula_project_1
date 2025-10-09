@@ -63,9 +63,9 @@ O sistema é controlado pelo módulo principal que integra todos os componentes:
 ┌─────────────────────────────────────────────────────────────┐
 │                    SISTEMA DE PILHA RPN                    │
 ├─────────────────────────────────────────────────────────────┤
-│  • 4 Registradores de 8 bits (reg0, reg1, reg2, reg3)     │
-│  • Deslocamento automático ao inserir números              │
-│  • Operandos A = reg0, B = reg1                            │
+│  • 2 Registradores de 8 bits (reg0, reg1)                 │
+│  • Pilha simplificada para operações básicas               │
+│  • Operandos A = reg0 (topo), B = reg1 (segundo)          │
 └─────────────────────────────────────────────────────────────┘
                               │
                               ▼
@@ -125,13 +125,12 @@ ula_project/
 ├── # Módulos de Suporte
 ├── registrador_8bits.v             # Registrador de 8 bits
 ├── registrador_memoria.v           # Registrador de memória especializado
-├── contador_2bits.v                # Contador para controle da pilha
+├── contador_1bit.v                 # Contador simplificado para pilha (NOVO!)
 ├── contador_3bits.v                # Contador para operações sequenciais
 ├── shift_register_8bits.v          # Registrador de deslocamento
 ├── comparador_8bits.v              # Comparador de 8 bits
 ├── bin_to_bcd_8bit.v               # Conversor binário para BCD
 ├── decodificador_7seg.v            # Decodificador para displays
-├── decodificador_2_4.v             # Decodificador 2 para 4
 │
 ├── # Multiplexadores
 ├── mux_2_para_1.v                  # Multiplexador 2:1
@@ -163,10 +162,10 @@ ula_project/
 - **Módulos customizados**: Todos os componentes são implementados estruturalmente
 
 ### Sistema de Pilha RPN
-- **4 registradores de 8 bits**: Implementa pilha com deslocamento automático
-- **Deslocamento**: `reg3 ← reg2 ← reg1 ← reg0 ← entrada`
+- **2 registradores de 8 bits**: Pilha simplificada para operações básicas
+- **Deslocamento**: `reg1 ← reg0 ← entrada`
 - **Operandos**: A = reg0 (topo), B = reg1 (segundo)
-- **Controle**: Contador de 2 bits para gerenciar estado da pilha
+- **Controle**: Contador de 1 bit para gerenciar estado da pilha (0 ou 1)
 
 ### Operações Aritméticas Avançadas
 - **Multiplicação recursiva**: Usa soma repetida com shift registers
