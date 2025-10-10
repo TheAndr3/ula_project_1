@@ -106,6 +106,13 @@ module conversor_bases (
     decodificador_7seg U_DECOD_UNIDADE (.D(mux_unidade_out), .SEG(HEX0));
     decodificador_7seg U_DECOD_DEZENA (.D(mux_dezena_out), .SEG(HEX1));
     decodificador_7seg U_DECOD_CENTENA (.D(mux_centena_out), .SEG(HEX2));
-    decodificador_7seg U_DECOD_MILHAR (.D(gnd_bus), .SEG(HEX3)); // Sempre desligado
+    // HEX3 sempre desligado (todos os segmentos em 1 para display de 7 segmentos)
+    buf U_HEX3_SEG0 (HEX3[0], vcc);
+    buf U_HEX3_SEG1 (HEX3[1], vcc);
+    buf U_HEX3_SEG2 (HEX3[2], vcc);
+    buf U_HEX3_SEG3 (HEX3[3], vcc);
+    buf U_HEX3_SEG4 (HEX3[4], vcc);
+    buf U_HEX3_SEG5 (HEX3[5], vcc);
+    buf U_HEX3_SEG6 (HEX3[6], vcc);
 
 endmodule
